@@ -14,7 +14,7 @@
 	<name>seckill</name>
 	<description>茅台抢购秒杀</description>
 	<properties>
-		<java.version>11</java.version>
+		<java.version>1.8</java.version>
 		<kotlin.version>1.6.21</kotlin.version>
 	</properties>
 	<dependencies>
@@ -29,6 +29,12 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+		<!-- appium -->
+		<dependency>
+			<groupId>com.github.appium</groupId>
+			<artifactId>java-client</artifactId>
+			<version>7.6.0</version>
 		</dependency>
 		<dependency>
 			<groupId>com.fasterxml.jackson.module</groupId>
@@ -49,6 +55,14 @@
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
+	<!-- 仓库 -->
+	<repositories>
+		<!-- appium仓库 -->
+		<repository>
+			<id>jitpack.io</id>
+			<url>https://jitpack.io</url>
+		</repository>
+	</repositories>
 
 	<build>
 		<sourceDirectory>${project.basedir}/src/main/kotlin</sourceDirectory>

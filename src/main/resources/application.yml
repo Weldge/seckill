@@ -1,1 +1,95 @@
+spring:
+  mail:
+    host: "smtp.qq.com"
+    port: 465
+    username: "173293955@qq.com"
+    password: "ztiskyfqaqzscagf"
+    properties:
+      mail.smtp.ssl.enable: true
 
+scheduled:
+  trigger:
+    enabled: true
+    cron: "*/1 * * * * ?"
+
+platform:
+  android:
+    imoutai:
+      scheduled:
+        enabled: true
+        cron: "*/1 * * * * ?"
+      connect:
+        platformName: "Android"
+        platformVersion: "11"
+        deviceName: "8e156534"
+        appPackage: "com.moutai.mall"
+        appActivity: "com.moutai.mall.module.splash.SplashActivity"
+        noReset: "true"
+    taobao:
+      scheduled:
+        enabled: true
+        cron: "*/1 * * * * ?"
+      connect:
+        platformVersion: "11"
+        deviceName: "8e156534"
+        appPackage: "com.taobao.taobao"
+        appActivity: "com.taobao.tao.welcome.Welcome"
+        noReset: "true"
+    jd:
+      scheduled:
+        enabled: true
+        cron: "*/1 * * * * ?"
+      connect:
+        platformVersion: "11"
+        deviceName: "8e156534"
+        appPackage: "com.jingdong.app.mall"
+        appActivity: ".main.MainActivity"
+        noReset: "true"
+    suning:
+      scheduled:
+      connect:
+        platformVersion: "11"
+        deviceName: "8e156534"
+        appPackage: "com.suning.mobile.ebuy"
+        appActivity: ".commodity.CommodityMainActivity"
+        noReset: "true"
+    yijiuyijiu:
+      scheduled:
+      connect:
+        platformVersion: "11"
+        deviceName: "8e156534"
+        appPackage: "com.yijiuyijiu.eshop"
+        appActivity: "com.b2c1919.app.ui.product.ProductDetailActivity"
+        noReset: "true"
+    siku:
+      scheduled:
+      connect:
+        platformVersion: "11"
+        deviceName: "8e156534"
+        appPackage: "com.secoo"
+        appActivity: ".gooddetails.mvp.ui.activity.GoodDetailsActivity"
+        noReset: "true"
+    wangyi:
+      scheduled:
+      connect:
+        platformVersion: "11"
+        deviceName: "8e156534"
+        appPackage: "com.netease.yanxuan"
+        appActivity: ".module.goods.activity.GoodsDetailActivity"
+        noReset: "true"
+    xiaomi:
+      scheduled:
+      connect:
+        platformVersion: "11"
+        deviceName: "8e156534"
+        appPackage: "com.xiaomi.youpin"
+        appActivity: "com.xiaomi.miot.store.ui.MiotStoreMainActivity"
+        noReset: "true"
+    zhenkuaile:
+      scheduled:
+      connect:
+        platformVersion: "11"
+        deviceName: "8e156534"
+        appPackage: "com.gome.eshopnew"
+        appActivity: "com.gome.ecmall.product.ui.GProductDetailActivity"
+        noReset: "true"
