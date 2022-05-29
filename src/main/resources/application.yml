@@ -19,7 +19,6 @@ platform:
         enabled: true
         cron: "*/1 * * * * ?"
       connect:
-        platformName: "Android"
         platformVersion: "11"
         deviceName: "8e156534"
         appPackage: "com.moutai.mall"

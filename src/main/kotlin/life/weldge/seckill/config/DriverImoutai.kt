@@ -7,12 +7,12 @@ import org.springframework.context.annotation.Configuration
 import java.net.URL
 
 @Configuration
-@ConfigurationProperties(prefix = "platform.android.jd")
-class DriverJd {
+@ConfigurationProperties(prefix = "platform.android.imoutai")
+class DriverImoutai {
 
     lateinit var connect: Map<String, String>
 
     fun getAndroidDriver(): AndroidDriver {
-        return AndroidDriver(URL("http://127.0.0.1:4723/wd/hub"), UiAutomator2Options(connect))
+        return AndroidDriver(URL("http://127.0.0.1:4723"), UiAutomator2Options(connect))
     }
 }

@@ -1,22 +1,31 @@
 package life.weldge.seckill.domain
 
-import io.appium.java_client.MobileBy
+import io.appium.java_client.AppiumBy
 import io.appium.java_client.android.AndroidDriver
 import org.openqa.selenium.WebElement
 
-abstract class BasePage(driver: AndroidDriver<WebElement>) {
+abstract class BasePage(driver: AndroidDriver) {
 
-    lateinit var driver: AndroidDriver<WebElement>
+    lateinit var driver: AndroidDriver
 
-    fun locator(by: MobileBy): WebElement {
+    /**
+     * 元素定位
+     */
+    fun locator(by: AppiumBy): WebElement {
         return  driver.findElement(by)
     }
 
-    fun input(by: MobileBy, value: String) {
+    /**
+     * 元素输入
+     */
+    fun input(by: AppiumBy, value: String) {
         this.locator(by).sendKeys(value)
     }
 
-    fun click(by: MobileBy) {
+    /**
+     * 元素点击
+     */
+    fun click(by: AppiumBy) {
         this.locator(by).click()
     }
 
