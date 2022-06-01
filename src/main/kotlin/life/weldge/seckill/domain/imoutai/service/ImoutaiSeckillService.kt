@@ -14,7 +14,7 @@ class ImoutaiSeckillService(
 
     fun seckillMaotai100() {
         driver.getAndroidDriver().let { it ->
-            //设置隐式等待
+            //首页进入动画时间太长， 设置显示等待
             it.manage().timeouts().implicitlyWait(Duration.ofSeconds(20))
             WebDriverWait(it, Duration.ofSeconds(30)).until(
                 ExpectedConditions.visibilityOfElementLocated(
@@ -22,13 +22,14 @@ class ImoutaiSeckillService(
                 )
             )
             //进入云购
-            var yungou = it.findElement(AppiumBy.androidUIAutomator("new UiSelector().text(\"云购\")"))
-            yungou.click()
+            it.findElement(AppiumBy.androidUIAutomator("new UiSelector().text(\"云购\")")).click()
             //进入100ml茅台详情页面
-            var detail = it.findElement(
-                AppiumBy.androidUIAutomator("new UiSelector().text(\"¥399/瓶\")")
-            )
-            detail.click()
+            it.findElements(
+                AppiumBy.androidUIAutomator(
+                    "new UiSelector().className(\"android.view.ViewGroup\").clickable(true)"
+                )
+            )[1].click()
+            //抢购
 
         }
 
