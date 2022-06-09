@@ -8,11 +8,12 @@ import java.net.URL
 
 @Configuration
 @ConfigurationProperties(prefix = "platform.android.imoutai")
-class DriverImoutai {
+class DriverImoutai{
 
-    lateinit var connect: Map<String, String>
+    lateinit var connect: MutableMap<String, String>
 
     fun getAndroidDriver(): AndroidDriver {
+
         return AndroidDriver(URL("http://127.0.0.1:4723"), UiAutomator2Options(connect))
     }
 }

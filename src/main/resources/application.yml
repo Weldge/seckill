@@ -19,78 +19,85 @@ platform:
         enabled: true
         cron: "*/1 * * * * ?"
       connect:
-        platformName: "android"
-        automationName: "uiautomator2"
-        platformVersion: "11"
-        deviceName: "8e156534"
+        udid: "8e156534"
+        unlockType: "password"
+        unlockKey: "9527"
+        noReset: "true"
         appPackage: "com.moutai.mall"
         appActivity: "com.moutai.mall.module.splash.SplashActivity"
-        noReset: "true"
     taobao:
       scheduled:
         enabled: true
         cron: "*/1 * * * * ?"
       connect:
-        platformVersion: "11"
-        deviceName: "8e156534"
+        udid: "8e156534"
+        unlockType: "password"
+        unlockKey: "9527"
+        noReset: "true"
         appPackage: "com.taobao.taobao"
         appActivity: "com.taobao.tao.welcome.Welcome"
-        noReset: "true"
     jd:
       scheduled:
         enabled: true
         cron: "*/1 * * * * ?"
       connect:
-        platformVersion: "11"
-        deviceName: "8e156534"
+        udid: "8e156534"
+        unlockType: "password"
+        unlockKey: "9527"
+        noReset: "true"
         appPackage: "com.jingdong.app.mall"
         appActivity: ".main.MainActivity"
-        noReset: "true"
     suning:
       scheduled:
       connect:
-        platformVersion: "11"
-        deviceName: "8e156534"
+        udid: "8e156534"
+        unlockType: "password"
+        unlockKey: "9527"
+        noReset: "true"
         appPackage: "com.suning.mobile.ebuy"
         appActivity: ".commodity.CommodityMainActivity"
-        noReset: "true"
     yijiuyijiu:
       scheduled:
       connect:
-        platformVersion: "11"
-        deviceName: "8e156534"
+        udid: "8e156534"
+        unlockType: "password"
+        unlockKey: "9527"
+        noReset: "true"
         appPackage: "com.yijiuyijiu.eshop"
         appActivity: "com.b2c1919.app.ui.product.ProductDetailActivity"
-        noReset: "true"
     siku:
       scheduled:
       connect:
-        platformVersion: "11"
-        deviceName: "8e156534"
+        udid: "8e156534"
+        unlockType: "password"
+        unlockKey: "9527"
+        noReset: "true"
         appPackage: "com.secoo"
         appActivity: ".gooddetails.mvp.ui.activity.GoodDetailsActivity"
-        noReset: "true"
     wangyi:
       scheduled:
       connect:
-        platformVersion: "11"
-        deviceName: "8e156534"
+        udid: "8e156534"
+        unlockType: "password"
+        unlockKey: "9527"
+        noReset: "true"
         appPackage: "com.netease.yanxuan"
         appActivity: ".module.goods.activity.GoodsDetailActivity"
-        noReset: "true"
     xiaomi:
       scheduled:
       connect:
-        platformVersion: "11"
-        deviceName: "8e156534"
+        udid: "8e156534"
+        unlockType: "password"
+        unlockKey: "9527"
+        noReset: "true"
         appPackage: "com.xiaomi.youpin"
         appActivity: "com.xiaomi.miot.store.ui.MiotStoreMainActivity"
-        noReset: "true"
     zhenkuaile:
       scheduled:
       connect:
-        platformVersion: "11"
-        deviceName: "8e156534"
+        udid: "8e156534"
+        unlockType: "password"
+        unlockKey: "9527"
+        noReset: "true"
         appPackage: "com.gome.eshopnew"
         appActivity: "com.gome.ecmall.product.ui.GProductDetailActivity"
-        noReset: "true"

@@ -16,7 +16,7 @@ class ImoutaiSeckillService(
         driver.getAndroidDriver().let { it ->
             //首页进入动画时间太长， 设置显示等待
             it.manage().timeouts().implicitlyWait(Duration.ofSeconds(20))
-            WebDriverWait(it, Duration.ofSeconds(30)).until(
+            WebDriverWait(it, Duration.ofSeconds(20)).until(
                 ExpectedConditions.visibilityOfElementLocated(
                     AppiumBy.androidUIAutomator("new UiSelector().text(\"云购\")")
                 )
@@ -31,6 +31,8 @@ class ImoutaiSeckillService(
             )[1].click()
             //抢购
 
+            //退出app
+            it.closeApp()
         }
 
     }
