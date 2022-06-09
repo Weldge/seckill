@@ -13,6 +13,6 @@ class DriverJd {
     lateinit var connect: Map<String, String>
 
     fun getAndroidDriver(): AndroidDriver {
-        return AndroidDriver(URL("http://127.0.0.1:4723/wd/hub"), UiAutomator2Options(connect))
+        return AndroidDriver(URL("http://127.0.0.1:4723"), UiAutomator2Options(connect))
     }
 }

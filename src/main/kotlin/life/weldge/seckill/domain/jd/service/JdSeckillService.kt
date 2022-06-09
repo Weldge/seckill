@@ -11,4 +11,8 @@ class JdSeckillService(
     fun seckillMaotai() {
 
     }
+
+    fun reserveMaotai() {
+
+    }
 }
