@@ -24,4 +24,9 @@ class JdTests {
         service!!.seckillMaotai()
     }
 
+    @Test
+    fun reserveMaotai() {
+        service!!.reserveMaotai()
+    }
+
 }

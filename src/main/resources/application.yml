@@ -44,6 +44,7 @@ platform:
         udid: "8e156534"
         unlockType: "password"
         unlockKey: "9527"
+        uiautomator2ServerReadTimeout: "10000"
         noReset: "true"
         appPackage: "com.jingdong.app.mall"
         appActivity: ".main.MainActivity"
