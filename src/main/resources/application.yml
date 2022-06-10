@@ -20,7 +20,7 @@ platform:
         cron: "*/1 * * * * ?"
       connect:
         udid: "8e156534"
-        unlockType: "password"
+        unlockType: "pattern"
         unlockKey: "9527"
         noReset: "true"
         appPackage: "com.moutai.mall"
@@ -31,7 +31,7 @@ platform:
         cron: "*/1 * * * * ?"
       connect:
         udid: "8e156534"
-        unlockType: "password"
+        unlockType: "pattern"
         unlockKey: "9527"
         noReset: "true"
         appPackage: "com.taobao.taobao"
@@ -42,7 +42,7 @@ platform:
         cron: "*/1 * * * * ?"
       connect:
         udid: "8e156534"
-        unlockType: "password"
+        unlockType: "pattern"
         unlockKey: "9527"
         uiautomator2ServerReadTimeout: "10000"
         noReset: "true"
@@ -61,7 +61,7 @@ platform:
       scheduled:
       connect:
         udid: "8e156534"
-        unlockType: "password"
+        unlockType: "pattern"
         unlockKey: "9527"
         noReset: "true"
         appPackage: "com.yijiuyijiu.eshop"
@@ -70,7 +70,7 @@ platform:
       scheduled:
       connect:
         udid: "8e156534"
-        unlockType: "password"
+        unlockType: "pattern"
         unlockKey: "9527"
         noReset: "true"
         appPackage: "com.secoo"
@@ -79,7 +79,7 @@ platform:
       scheduled:
       connect:
         udid: "8e156534"
-        unlockType: "password"
+        unlockType: "pattern"
         unlockKey: "9527"
         noReset: "true"
         appPackage: "com.netease.yanxuan"
@@ -88,7 +88,7 @@ platform:
       scheduled:
       connect:
         udid: "8e156534"
-        unlockType: "password"
+        unlockType: "pattern"
         unlockKey: "9527"
         noReset: "true"
         appPackage: "com.xiaomi.youpin"
@@ -97,7 +97,7 @@ platform:
       scheduled:
       connect:
         udid: "8e156534"
-        unlockType: "password"
+        unlockType: "pattern"
         unlockKey: "9527"
         noReset: "true"
         appPackage: "com.gome.eshopnew"

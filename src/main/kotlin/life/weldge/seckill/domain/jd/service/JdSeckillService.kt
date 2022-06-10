@@ -22,7 +22,7 @@ class JdSeckillService(
             TimeUnit.SECONDS.sleep(5L)
             it.get(detail)
             //等待详情页加载完毕
-            TimeUnit.SECONDS.sleep(8L)
+            TimeUnit.SECONDS.sleep(5L)
             try {
                 WebDriverWait(it, Duration.ofSeconds(70), Duration.ofMillis(10L)).until(
                     ExpectedConditions.attributeToBe(
