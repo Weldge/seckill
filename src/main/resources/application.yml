@@ -57,7 +57,7 @@ platform:
         noReset: "true"
         appPackage: "com.suning.mobile.ebuy"
         appActivity: ".commodity.CommodityMainActivity"
-    yijiuyijiu:
+    yijiu:
       scheduled:
       connect:
         udid: "8e156534"
@@ -65,7 +65,7 @@ platform:
         unlockKey: "9527"
         noReset: "true"
         appPackage: "com.yijiuyijiu.eshop"
-        appActivity: "com.b2c1919.app.ui.product.ProductDetailActivity"
+        appActivity: "com.b2c1919.app.ui.launch.LaunchActivity"
     siku:
       scheduled:
       connect:
@@ -101,4 +101,4 @@ platform:
         unlockKey: "9527"
         noReset: "true"
         appPackage: "com.gome.eshopnew"
-        appActivity: "com.gome.ecmall.product.ui.GProductDetailActivity"
+        appActivity: "com.gome.ecmall.home.LaunchActivity"
