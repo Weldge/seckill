@@ -1,8 +1,8 @@
-package life.weldge.seckill.domain.wangyi.vo
+package life.weldge.seckill.domain.yanxuan.vo
 
 import life.weldge.seckill.domain.BaseSeckillResult
 
-class WangyiSeckillResult : BaseSeckillResult {
+class YanxuanSeckillResult : BaseSeckillResult {
 
     override val platform: String? = "网易"
 

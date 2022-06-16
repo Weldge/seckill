@@ -22,6 +22,7 @@ platform:
         udid: "8e156534"
         unlockType: "pattern"
         unlockKey: "9527"
+        uiautomator2ServerReadTimeout: "10000"
         noReset: "true"
         appPackage: "com.moutai.mall"
         appActivity: "com.moutai.mall.module.splash.SplashActivity"
@@ -33,6 +34,7 @@ platform:
         udid: "8e156534"
         unlockType: "pattern"
         unlockKey: "9527"
+        uiautomator2ServerReadTimeout: "10000"
         noReset: "true"
         appPackage: "com.taobao.taobao"
         appActivity: "com.taobao.tao.welcome.Welcome"
@@ -54,6 +56,7 @@ platform:
         udid: "8e156534"
         unlockType: "password"
         unlockKey: "9527"
+        uiautomator2ServerReadTimeout: "10000"
         noReset: "true"
         appPackage: "com.suning.mobile.ebuy"
         appActivity: ".commodity.CommodityMainActivity"
@@ -63,6 +66,7 @@ platform:
         udid: "8e156534"
         unlockType: "pattern"
         unlockKey: "9527"
+        uiautomator2ServerReadTimeout: "10000"
         noReset: "true"
         appPackage: "com.yijiuyijiu.eshop"
         appActivity: "com.b2c1919.app.ui.launch.LaunchActivity"
@@ -72,33 +76,37 @@ platform:
         udid: "8e156534"
         unlockType: "pattern"
         unlockKey: "9527"
+        uiautomator2ServerReadTimeout: "10000"
         noReset: "true"
         appPackage: "com.secoo"
-        appActivity: ".gooddetails.mvp.ui.activity.GoodDetailsActivity"
-    wangyi:
+        appActivity: "com.secoo.app.mvp.ui.activity.LauncherActivity"
+    yanxuan:
       scheduled:
       connect:
         udid: "8e156534"
         unlockType: "pattern"
         unlockKey: "9527"
+        uiautomator2ServerReadTimeout: "10000"
         noReset: "true"
         appPackage: "com.netease.yanxuan"
-        appActivity: ".module.goods.activity.GoodsDetailActivity"
+        appActivity: ".module.mainpage.activity.MainPageActivity"
     xiaomi:
       scheduled:
       connect:
         udid: "8e156534"
         unlockType: "pattern"
         unlockKey: "9527"
+        uiautomator2ServerReadTimeout: "10000"
         noReset: "true"
         appPackage: "com.xiaomi.youpin"
-        appActivity: "com.xiaomi.miot.store.ui.MiotStoreMainActivity"
+        appActivity: "com.xiaomi.youpin.activity.SplashActivity"
     zhenkuaile:
       scheduled:
       connect:
         udid: "8e156534"
         unlockType: "pattern"
         unlockKey: "9527"
+        uiautomator2ServerReadTimeout: "10000"
         noReset: "true"
         appPackage: "com.gome.eshopnew"
         appActivity: "com.gome.ecmall.home.LaunchActivity"

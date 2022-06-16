@@ -3,20 +3,21 @@
 //import org.junit.jupiter.api.Test
 //import org.springframework.beans.factory.annotation.Autowired
 //import org.springframework.boot.test.context.SpringBootTest
-//import life.weldge.seckill.config.DriverJd
-//import life.weldge.seckill.domain.jd.service.JdSeckillService
+//import life.weldge.seckill.config.DriverZhenkuaile
+//import life.weldge.seckill.domain.zhenkuaile.service.ZhenkuaileSeckillService
 //
 //@SpringBootTest
-//class JdTests {
+//class ZhenkuaileTests {
 //
 //    @Autowired
-//    private val driverJd: DriverJd? = null
+//    private val driver: DriverZhenkuaile? = null
 //    @Autowired
-//    private val service: JdSeckillService? = null
+//    private val service: ZhenkuaileSeckillService? = null
 //
 //    @Test
 //    fun connect() {
-//        var driver = driverJd!!.getAndroidDriver()
+//        var driver = driver!!.getAndroidDriver()
+//        driver.closeApp()
 //    }
 //
 //    @Test

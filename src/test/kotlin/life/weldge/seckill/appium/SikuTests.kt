@@ -1,22 +1,25 @@
 //package life.weldge.seckill.appium
 //
+//import life.weldge.seckill.config.DriverSiku
+//import life.weldge.seckill.domain.siku.service.SikuSeckillService
 //import org.junit.jupiter.api.Test
 //import org.springframework.beans.factory.annotation.Autowired
 //import org.springframework.boot.test.context.SpringBootTest
-//import life.weldge.seckill.config.DriverJd
-//import life.weldge.seckill.domain.jd.service.JdSeckillService
+//import java.util.concurrent.TimeUnit
 //
 //@SpringBootTest
-//class JdTests {
+//class SikuTests {
 //
 //    @Autowired
-//    private val driverJd: DriverJd? = null
+//    private val driver: DriverSiku? = null
 //    @Autowired
-//    private val service: JdSeckillService? = null
+//    private val service: SikuSeckillService? = null
 //
 //    @Test
 //    fun connect() {
-//        var driver = driverJd!!.getAndroidDriver()
+//        var driver = driver!!.getAndroidDriver()
+//        TimeUnit.SECONDS.sleep(3L)
+//        driver.closeApp()
 //    }
 //
 //    @Test

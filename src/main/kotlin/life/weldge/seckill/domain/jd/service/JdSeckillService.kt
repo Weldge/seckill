@@ -51,13 +51,11 @@ class JdSeckillService(
             TimeUnit.SECONDS.sleep(8L)
             try {
                 WebDriverWait(it, Duration.ofSeconds(70), Duration.ofMillis(10)).until(
-                    ExpectedConditions.attributeToBe(
-                        AppiumBy.id("com.jd.lib.productdetail.feature:id/g"),
-                        "text",
-                        "立即预约"
+                    ExpectedConditions.visibilityOfElementLocated(
+                        AppiumBy.androidUIAutomator("new UiSelector().text(\"立即预约\")")
                     )
                 )
-                it.findElement(AppiumBy.id("com.jd.lib.productdetail.feature:id/g")).click()
+                it.findElement(AppiumBy.androidUIAutomator("new UiSelector().text(\"立即预约\")")).click()
                 return JdReserveResult("预约成功")
             } catch (e: org.openqa.selenium.NoSuchElementException) {
                 log.error("京东预约失败，原因：" + e.message)

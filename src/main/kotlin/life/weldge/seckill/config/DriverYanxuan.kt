@@ -7,8 +7,8 @@ import org.springframework.context.annotation.Configuration
 import java.net.URL
 
 @Configuration
-@ConfigurationProperties(prefix = "platform.android.wangyi")
-class DriverWangyi {
+@ConfigurationProperties(prefix = "platform.android.yanxuan")
+class DriverYanxuan {
 
     lateinit var connect: Map<String, String>
 
