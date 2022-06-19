@@ -3,17 +3,17 @@
 //import org.junit.jupiter.api.Test
 //import org.springframework.beans.factory.annotation.Autowired
 //import org.springframework.boot.test.context.SpringBootTest
-//import life.weldge.seckill.config.DriverYiJiuYiJiu
-//import life.weldge.seckill.domain.yiJiuYiJiu.service.YiJiuYiJiuSeckillService
+//import life.weldge.seckill.config.DriverSuning
+//import life.weldge.seckill.domain.suning.service.SuningSeckillService
 //import java.util.concurrent.TimeUnit
 //
 //@SpringBootTest
-//class YiJiuYiJiuTests {
+//class SuningTests {
 //
 //    @Autowired
-//    private val driverJd: DriverYiJiuYiJiu? = null
+//    private val driverJd: DriverSuning? = null
 //    @Autowired
-//    private val service: YiJiuYiJiuSeckillService? = null
+//    private val service: SuningSeckillService? = null
 //
 //    @Test
 //    fun connect() {

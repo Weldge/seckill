@@ -1,7 +1,7 @@
 package life.weldge.seckill.domain.yanxuan.service
 
 import io.appium.java_client.AppiumBy
-import life.weldge.seckill.config.DriverJd
+import life.weldge.seckill.config.DriverYanxuan
 import life.weldge.seckill.domain.yanxuan.vo.YanxuanReserveResult
 import life.weldge.seckill.domain.yanxuan.vo.YanxuanSeckillResult
 import org.openqa.selenium.support.ui.ExpectedConditions
@@ -13,7 +13,7 @@ import java.util.concurrent.TimeUnit
 
 @Service
 class YanxuanSeckillService(
-    val driver: DriverJd
+    val driver: DriverYanxuan
 ) {
 
     fun seckillMaotai(): YanxuanSeckillResult {
@@ -46,18 +46,10 @@ class YanxuanSeckillService(
         driver.getAndroidDriver().let {
             //线程睡眠等待首页动画结束
             TimeUnit.SECONDS.sleep(5L)
-            it.get(detail)
-            //等待详情页加载完毕
-            TimeUnit.SECONDS.sleep(8L)
+
             try {
-                WebDriverWait(it, Duration.ofSeconds(70), Duration.ofMillis(10)).until(
-                    ExpectedConditions.attributeToBe(
-                        AppiumBy.id("com.jd.lib.productdetail.feature:id/g"),
-                        "text",
-                        "立即预约"
-                    )
-                )
-                it.findElement(AppiumBy.id("com.jd.lib.productdetail.feature:id/g")).click()
+                it.findElement(AppiumBy.androidUIAutomator("new UiSelector().text(\"个人\")")).click()
+                it.findElement(AppiumBy.androidUIAutomator("new UiSelector().text(\"收藏\")")).click()
                 return YanxuanReserveResult("预约成功")
             } catch (e: org.openqa.selenium.NoSuchElementException) {
                 log.error("京东预约失败，原因：" + e.message)

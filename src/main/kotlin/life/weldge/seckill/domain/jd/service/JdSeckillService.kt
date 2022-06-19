@@ -20,7 +20,6 @@ class JdSeckillService(
         driver.getAndroidDriver().let { //设置全局隐式等待
             //线程睡眠等待首页动画结束
             TimeUnit.SECONDS.sleep(5L)
-            it.get(detail)
             //等待详情页加载完毕
             TimeUnit.SECONDS.sleep(5L)
             try {
@@ -46,9 +45,9 @@ class JdSeckillService(
         driver.getAndroidDriver().let {
             //线程睡眠等待首页动画结束
             TimeUnit.SECONDS.sleep(5L)
-            it.get(detail)
             //等待详情页加载完毕
             TimeUnit.SECONDS.sleep(8L)
+
             try {
                 WebDriverWait(it, Duration.ofSeconds(70), Duration.ofMillis(10)).until(
                     ExpectedConditions.visibilityOfElementLocated(
@@ -68,9 +67,6 @@ class JdSeckillService(
     }
 
     companion object {
-
-        private const val detail =
-            "https://item.m.jd.com/product/100012043978.html?gx=RnFjkTVbbj2PmtQUqId1VOmfpTE6-g&ad_od=share&utm_source=androidapp&utm_medium=appshare&utm_campaign=t_335139774&utm_term=CopyURL"
 
         private val log = LoggerFactory.getLogger(JdSeckillService::class.java)
     }

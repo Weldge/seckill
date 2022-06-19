@@ -1,7 +1,7 @@
 package life.weldge.seckill.domain.suning.service
 
 import io.appium.java_client.AppiumBy
-import life.weldge.seckill.config.DriverJd
+import life.weldge.seckill.config.DriverSuning
 import life.weldge.seckill.domain.suning.vo.SuningReserveResult
 import life.weldge.seckill.domain.suning.vo.SuningSeckillResult
 import org.openqa.selenium.support.ui.ExpectedConditions
@@ -13,7 +13,7 @@ import java.util.concurrent.TimeUnit
 
 @Service
 class SuningSeckillService(
-    val driver: DriverJd
+    val driver: DriverSuning
 ) {
 
     fun seckillMaotai(): SuningSeckillResult {
@@ -45,7 +45,7 @@ class SuningSeckillService(
     fun reserveMaotai(): SuningReserveResult {
         driver.getAndroidDriver().let {
             //线程睡眠等待首页动画结束
-            TimeUnit.SECONDS.sleep(5L)
+            TimeUnit.SECONDS.sleep(7L)
             it.get(detail)
             //等待详情页加载完毕
             TimeUnit.SECONDS.sleep(8L)
@@ -72,7 +72,7 @@ class SuningSeckillService(
     companion object {
 
         private const val detail =
-            "https://item.m.jd.com/product/100012043978.html?gx=RnFjkTVbbj2PmtQUqId1VOmfpTE6-g&ad_od=share&utm_source=androidapp&utm_medium=appshare&utm_campaign=t_335139774&utm_term=CopyURL"
+            "https://m.suning.com/product/0000000000/000000012354857650.html?utm_campaign=1655567113693042812&utm_source=share-copyurl&utm_medium=2cd5ed46-copyurl"
 
         private val log = LoggerFactory.getLogger(SuningSeckillService::class.java)
     }

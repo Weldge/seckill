@@ -54,12 +54,12 @@ platform:
       scheduled:
       connect:
         udid: "8e156534"
-        unlockType: "password"
+        unlockType: "pattern"
         unlockKey: "9527"
         uiautomator2ServerReadTimeout: "10000"
         noReset: "true"
         appPackage: "com.suning.mobile.ebuy"
-        appActivity: ".commodity.CommodityMainActivity"
+        appActivity: "com.suning.mobile.ebuy.host.InitialActivity"
     yijiu:
       scheduled:
       connect:

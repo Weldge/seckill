@@ -46,13 +46,14 @@ class YiJiuYiJiuSeckillService(
             //线程睡眠等待首页动画结束
             TimeUnit.SECONDS.sleep(5L)
             //关闭悬浮窗口
-            it.findElement(AppiumBy.id("com.yijiuyijiu.eshop:id/btn_close")).click()
+            it.findElement(
+                AppiumBy.id("com.yijiuyijiu.eshop:id/btn_close")
+            ).click()
             //进入茅台页面
             it.findElement(
-                AppiumBy.androidUIAutomator(
-                    "new UiSelector().resourceId(\"com.yijiuyijiu.eshop:id/tvName\").text(\"抢茅台\")"
-                )
+                AppiumBy.id("com.yijiuyijiu.eshop:id/imageContent")
             ).click()
+            //
 
             try {
                 WebDriverWait(it, Duration.ofSeconds(70), Duration.ofMillis(10)).until(
