@@ -32,13 +32,13 @@ class YanxuanSeckillService(
                     )
                 )
                 it.findElement(AppiumBy.id("com.jd.lib.productdetail.feature:id/g")).click()
-                return YanxuanSeckillResult("抢购成功")
+                return YanxuanSeckillResult.success()
             } catch (e: Exception) {
                 log.error("京东抢购失败，原因：'{}'.", e.message)
             } finally {
                 it.closeApp()
             }
-            return YanxuanSeckillResult("抢购失败")
+            return YanxuanSeckillResult.fails()
         }
     }
 
@@ -50,14 +50,14 @@ class YanxuanSeckillService(
             try {
                 it.findElement(AppiumBy.androidUIAutomator("new UiSelector().text(\"个人\")")).click()
                 it.findElement(AppiumBy.androidUIAutomator("new UiSelector().text(\"收藏\")")).click()
-                return YanxuanReserveResult("预约成功")
+                return YanxuanReserveResult.success()
             } catch (e: org.openqa.selenium.NoSuchElementException) {
                 log.error("京东预约失败，原因：" + e.message)
             } finally {
                 //退出app
                 it.closeApp()
             }
-            return YanxuanReserveResult("预约失败")
+            return YanxuanReserveResult.fails()
         }
     }
 

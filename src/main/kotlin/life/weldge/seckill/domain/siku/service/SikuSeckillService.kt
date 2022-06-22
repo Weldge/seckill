@@ -32,13 +32,13 @@ class SikuSeckillService(
                     )
                 )
                 it.findElement(AppiumBy.id("com.jd.lib.productdetail.feature:id/g")).click()
-                return SikuSeckillResult("抢购成功")
+                return SikuSeckillResult.success()
             } catch (e: Exception) {
                 log.error("京东抢购失败，原因：'{}'.", e.message)
             } finally {
                 it.closeApp()
             }
-            return SikuSeckillResult("抢购失败")
+            return SikuSeckillResult.fails()
         }
     }
 
@@ -58,14 +58,14 @@ class SikuSeckillService(
                     )
                 )
                 it.findElement(AppiumBy.id("com.jd.lib.productdetail.feature:id/g")).click()
-                return SikuReserveResult("预约成功")
+                return SikuReserveResult.success()
             } catch (e: org.openqa.selenium.NoSuchElementException) {
                 log.error("京东预约失败，原因：" + e.message)
             } finally {
                 //退出app
                 it.closeApp()
             }
-            return SikuReserveResult("预约失败")
+            return SikuReserveResult.fails()
         }
     }
 

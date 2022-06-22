@@ -31,13 +31,13 @@ class YiJiuYiJiuSeckillService(
                     )
                 )
                 it.findElement(AppiumBy.id("com.jd.lib.productdetail.feature:id/g")).click()
-                return YiJiuYiJiuSeckillResult("抢购成功")
+                return YiJiuYiJiuSeckillResult.success()
             } catch (e: Exception) {
                 log.error("<1919吃喝>,抢购失败，原因：'{}'.", e.message)
             } finally {
                 it.closeApp()
             }
-            return YiJiuYiJiuSeckillResult("抢购失败")
+            return YiJiuYiJiuSeckillResult.fails()
         }
     }
 
@@ -64,14 +64,14 @@ class YiJiuYiJiuSeckillService(
                     )
                 )
                 it.findElement(AppiumBy.id("com.jd.lib.productdetail.feature:id/g")).click()
-                return YiJiuYiJiuReserveResult("预约成功")
+                return YiJiuYiJiuReserveResult.success()
             } catch (e: org.openqa.selenium.NoSuchElementException) {
                 log.error("<1919吃喝>,预约失败，原因：" + e.message)
             } finally {
                 //退出app
                 it.closeApp()
             }
-            return YiJiuYiJiuReserveResult("预约失败")
+            return YiJiuYiJiuReserveResult.fails()
         }
     }
 

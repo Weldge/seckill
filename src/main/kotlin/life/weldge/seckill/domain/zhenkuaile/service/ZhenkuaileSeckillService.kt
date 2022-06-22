@@ -31,13 +31,13 @@ class ZhenkuaileSeckillService(
                     )
                 )
                 it.findElement(AppiumBy.id("com.jd.lib.productdetail.feature:id/g")).click()
-                return ZhenkuaileSeckillResult("抢购成功")
+                return ZhenkuaileSeckillResult.success()
             } catch (e: Exception) {
                 log.error("<1919吃喝>,抢购失败，原因：'{}'.", e.message)
             } finally {
                 it.closeApp()
             }
-            return ZhenkuaileSeckillResult("抢购失败")
+            return ZhenkuaileSeckillResult.fails()
         }
     }
 
@@ -63,14 +63,14 @@ class ZhenkuaileSeckillService(
                     )
                 )
                 it.findElement(AppiumBy.id("com.jd.lib.productdetail.feature:id/g")).click()
-                return ZhenkuaileReserveResult("预约成功")
+                return ZhenkuaileReserveResult.success()
             } catch (e: org.openqa.selenium.NoSuchElementException) {
                 log.error("<1919吃喝>,预约失败，原因：" + e.message)
             } finally {
                 //退出app
                 it.closeApp()
             }
-            return ZhenkuaileReserveResult("预约失败")
+            return ZhenkuaileReserveResult.fails()
         }
     }
 

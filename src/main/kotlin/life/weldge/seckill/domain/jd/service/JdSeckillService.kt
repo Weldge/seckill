@@ -31,13 +31,13 @@ class JdSeckillService(
                     )
                 )
                 it.findElement(AppiumBy.id("com.jd.lib.productdetail.feature:id/g")).click()
-                return JdSeckillResult("抢购成功")
+                return JdSeckillResult.success()
             } catch (e: Exception) {
                 log.error("京东抢购失败，原因：'{}'.", e.message)
             } finally {
                 it.closeApp()
             }
-            return JdSeckillResult("抢购失败")
+            return JdSeckillResult.fails()
         }
     }
 
@@ -55,14 +55,14 @@ class JdSeckillService(
                     )
                 )
                 it.findElement(AppiumBy.androidUIAutomator("new UiSelector().text(\"立即预约\")")).click()
-                return JdReserveResult("预约成功")
+                return JdReserveResult.success()
             } catch (e: org.openqa.selenium.NoSuchElementException) {
                 log.error("京东预约失败，原因：" + e.message)
             } finally {
                 //退出app
                 it.closeApp()
             }
-            return JdReserveResult("预约失败")
+            return JdReserveResult.fails()
         }
     }
 

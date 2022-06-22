@@ -32,13 +32,13 @@ class XiaomiSeckillService(
                     )
                 )
                 it.findElement(AppiumBy.id("com.jd.lib.productdetail.feature:id/g")).click()
-                return XiaomiSeckillResult("抢购成功")
+                return XiaomiSeckillResult.success()
             } catch (e: Exception) {
                 log.error("京东抢购失败，原因：'{}'.", e.message)
             } finally {
                 it.closeApp()
             }
-            return XiaomiSeckillResult("抢购失败")
+            return XiaomiSeckillResult.fails()
         }
     }
 
@@ -58,14 +58,14 @@ class XiaomiSeckillService(
                     )
                 )
                 it.findElement(AppiumBy.id("com.jd.lib.productdetail.feature:id/g")).click()
-                return XiaomiReserveResult("预约成功")
+                return XiaomiReserveResult.success()
             } catch (e: org.openqa.selenium.NoSuchElementException) {
                 log.error("京东预约失败，原因：" + e.message)
             } finally {
                 //退出app
                 it.closeApp()
             }
-            return XiaomiReserveResult("预约失败")
+            return XiaomiReserveResult.fails()
         }
     }
 

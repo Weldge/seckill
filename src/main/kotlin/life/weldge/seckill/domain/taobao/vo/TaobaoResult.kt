@@ -1,12 +1,12 @@
-package life.weldge.seckill.domain.jd.vo
+package life.weldge.seckill.domain.taobao.vo
 
 import life.weldge.seckill.domain.BaseResult
 import life.weldge.seckill.domain.ResultState
 import life.weldge.seckill.domain.RunAction
 
-class JdSeckillResult : BaseResult {
+class TaobaoResult : BaseResult {
 
-    override val platform: String? = "京东"
+    override val platform: String? = "淘宝"
     override val action: RunAction = RunAction.SECKILL
 
     constructor() : super()
@@ -16,12 +16,12 @@ class JdSeckillResult : BaseResult {
     }
 
     companion object {
-        fun success(): JdSeckillResult {
-            return JdSeckillResult(ResultState.SUCCESS)
+        fun success(): TaobaoResult {
+            return TaobaoResult(ResultState.SUCCESS)
         }
 
-        fun fails(): JdSeckillResult {
-            return JdSeckillResult(ResultState.FAILS)
+        fun fails(): TaobaoResult {
+            return TaobaoResult(ResultState.FAILS)
         }
     }
 }
