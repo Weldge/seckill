@@ -4,7 +4,7 @@
 //import org.springframework.beans.factory.annotation.Autowired
 //import org.springframework.boot.test.context.SpringBootTest
 //import life.weldge.seckill.config.DriverSuning
-//import life.weldge.seckill.domain.suning.service.SuningSeckillService
+//import life.weldge.seckill.domain.suning.service.SuningService
 //import java.util.concurrent.TimeUnit
 //
 //@SpringBootTest
@@ -13,7 +13,7 @@
 //    @Autowired
 //    private val driverJd: DriverSuning? = null
 //    @Autowired
-//    private val service: SuningSeckillService? = null
+//    private val service: SuningService? = null
 //
 //    @Test
 //    fun connect() {

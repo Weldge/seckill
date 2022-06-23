@@ -12,7 +12,7 @@ import java.time.Duration
 import java.util.concurrent.TimeUnit
 
 @Service
-class JdSeckillService(
+class JdService(
     val driver: DriverJd
 ) {
 
@@ -20,6 +20,7 @@ class JdSeckillService(
         driver.getAndroidDriver().let { //设置全局隐式等待
             //线程睡眠等待首页动画结束
             TimeUnit.SECONDS.sleep(5L)
+            it.get(detail)
             //等待详情页加载完毕
             TimeUnit.SECONDS.sleep(5L)
             try {
@@ -44,30 +45,33 @@ class JdSeckillService(
     fun reserveMaotai(): JdReserveResult {
         driver.getAndroidDriver().let {
             //线程睡眠等待首页动画结束
-            TimeUnit.SECONDS.sleep(5L)
-            //等待详情页加载完毕
-            TimeUnit.SECONDS.sleep(8L)
-
+            TimeUnit.SECONDS.sleep(6L)
             try {
-                WebDriverWait(it, Duration.ofSeconds(70), Duration.ofMillis(10)).until(
-                    ExpectedConditions.visibilityOfElementLocated(
-                        AppiumBy.androidUIAutomator("new UiSelector().text(\"立即预约\")")
-                    )
-                )
-                it.findElement(AppiumBy.androidUIAutomator("new UiSelector().text(\"立即预约\")")).click()
+                //进入茅台详情页
+                it.get(detail)
+                //等待详情页加载完毕
+                TimeUnit.SECONDS.sleep(2L)
+                it.findElement(
+                    AppiumBy.androidUIAutomator("new UiSelector().text(\"立即预约\")")
+                )?.let {element ->
+                    element.click()
+                }
                 return JdReserveResult.success()
-            } catch (e: org.openqa.selenium.NoSuchElementException) {
-                log.error("京东预约失败，原因：" + e.message)
+            } catch (e: Exception) {
+                log.warn("预约发生异常，平台：京东，原因：'{}'。", e.message)
+                return JdReserveResult.fails()
             } finally {
                 //退出app
                 it.closeApp()
             }
-            return JdReserveResult.fails()
         }
     }
 
     companion object {
 
-        private val log = LoggerFactory.getLogger(JdSeckillService::class.java)
+        private const val detail =
+            "https://item.m.jd.com/product/100012043978.html?gx=RnFjkTVbbj2PmtQUqId1VOmfpTE6-g&ad_od=share&utm_source=androidapp&utm_medium=appshare&utm_campaign=t_335139774&utm_term=CopyURL"
+
+        private val log = LoggerFactory.getLogger(JdService::class.java)
     }
 }
