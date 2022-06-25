@@ -8,15 +8,17 @@ spring:
       mail.smtp.ssl.enable: true
 
 scheduled:
-  trigger:
+  reserve:
     enabled: true
-    cron: "*/1 * * * * ?"
+    cron:
+      one: "0 30 10 * * * *"  #每天10:30
+      two: "0 30 19 * * * *" #每天17:30
 
 platform:
   android:
     imoutai:
       scheduled:
-        enabled: true
+        enabled: false
         cron: "*/1 * * * * ?"
       connect:
         udid: "8e156534"
@@ -29,7 +31,7 @@ platform:
     taobao:
       scheduled:
         enabled: true
-        cron: "*/1 * * * * ?"
+        cron: "30 59 19 * * * *" #每天20:00
       connect:
         udid: "8e156534"
         unlockType: "pattern"
@@ -41,7 +43,8 @@ platform:
     jd:
       scheduled:
         enabled: true
-        cron: "*/1 * * * * ?"
+        cron:
+          seckill: "30 59 11 ? * 1-5 *" #工作日12:00
       connect:
         udid: "8e156534"
         unlockType: "pattern"
@@ -52,6 +55,9 @@ platform:
         appActivity: ".main.MainActivity"
     suning:
       scheduled:
+        enabled: true
+        cron:
+          seckill: "30 29 9 * * * *" #工作日12:00
       connect:
         udid: "8e156534"
         unlockType: "pattern"

@@ -1,7 +1,7 @@
 //package life.weldge.seckill.appium
 //
 //import life.weldge.seckill.config.DriverSiku
-//import life.weldge.seckill.domain.siku.service.SikuSeckillService
+//import life.weldge.seckill.domain.siku.service.SikuService
 //import org.junit.jupiter.api.Test
 //import org.springframework.beans.factory.annotation.Autowired
 //import org.springframework.boot.test.context.SpringBootTest
@@ -12,8 +12,9 @@
 //
 //    @Autowired
 //    private val driver: DriverSiku? = null
+//
 //    @Autowired
-//    private val service: SikuSeckillService? = null
+//    private val service: SikuService? = null
 //
 //    @Test
 //    fun connect() {

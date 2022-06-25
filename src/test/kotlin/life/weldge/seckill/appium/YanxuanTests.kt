@@ -4,7 +4,7 @@
 //import org.junit.jupiter.api.Test
 //import org.springframework.beans.factory.annotation.Autowired
 //import org.springframework.boot.test.context.SpringBootTest
-//import life.weldge.seckill.domain.yanxuan.service.YanxuanSeckillService
+//import life.weldge.seckill.domain.yanxuan.service.YanxuanService
 //import java.util.concurrent.TimeUnit
 //
 //@SpringBootTest
@@ -12,8 +12,9 @@
 //
 //    @Autowired
 //    private val driver: DriverYanxuan? = null
+//
 //    @Autowired
-//    private val service: YanxuanSeckillService? = null
+//    private val service: YanxuanService? = null
 //
 //    @Test
 //    fun connect() {

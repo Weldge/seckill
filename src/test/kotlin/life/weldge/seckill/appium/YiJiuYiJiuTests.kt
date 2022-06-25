@@ -4,7 +4,7 @@
 //import org.springframework.beans.factory.annotation.Autowired
 //import org.springframework.boot.test.context.SpringBootTest
 //import life.weldge.seckill.config.DriverYiJiuYiJiu
-//import life.weldge.seckill.domain.yiJiuYiJiu.service.YiJiuYiJiuSeckillService
+//import life.weldge.seckill.domain.yiJiuYiJiu.service.YiJiuYiJiuService
 //import java.util.concurrent.TimeUnit
 //
 //@SpringBootTest
@@ -12,8 +12,9 @@
 //
 //    @Autowired
 //    private val driverJd: DriverYiJiuYiJiu? = null
+//
 //    @Autowired
-//    private val service: YiJiuYiJiuSeckillService? = null
+//    private val service: YiJiuYiJiuService? = null
 //
 //    @Test
 //    fun connect() {

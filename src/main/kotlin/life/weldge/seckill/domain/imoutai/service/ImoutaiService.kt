@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service
 import java.time.Duration
 
 @Service
-class ImoutaiSeckillService(
+class ImoutaiService(
     val driver: DriverImoutai
 ) {
 

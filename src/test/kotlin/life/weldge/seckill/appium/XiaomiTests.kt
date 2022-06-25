@@ -1,7 +1,7 @@
 //package life.weldge.seckill.appium
 //
 //import life.weldge.seckill.config.DriverXiaomi
-//import life.weldge.seckill.domain.xiaomi.service.XiaomiSeckillService
+//import life.weldge.seckill.domain.xiaomi.service.XiaomiService
 //import org.junit.jupiter.api.Test
 //import org.springframework.beans.factory.annotation.Autowired
 //import org.springframework.boot.test.context.SpringBootTest
@@ -12,8 +12,9 @@
 //
 //    @Autowired
 //    private val driver: DriverXiaomi? = null
+//
 //    @Autowired
-//    private val service: XiaomiSeckillService? = null
+//    private val service: XiaomiService? = null
 //
 //    @Test
 //    fun connect() {

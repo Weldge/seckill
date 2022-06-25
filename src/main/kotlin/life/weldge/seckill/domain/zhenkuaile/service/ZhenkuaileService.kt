@@ -1,5 +1,6 @@
 package life.weldge.seckill.domain.zhenkuaile.service
 
+import com.google.common.collect.ImmutableMap
 import io.appium.java_client.AppiumBy
 import life.weldge.seckill.config.DriverYiJiuYiJiu
 import life.weldge.seckill.domain.zhenkuaile.vo.ZhenkuaileReserveResult
@@ -12,7 +13,7 @@ import java.time.Duration
 import java.util.concurrent.TimeUnit
 
 @Service
-class ZhenkuaileSeckillService(
+class ZhenkuaileService(
     val driver: DriverYiJiuYiJiu
 ) {
 
@@ -45,8 +46,8 @@ class ZhenkuaileSeckillService(
         driver.getAndroidDriver().let {
             //线程睡眠等待首页动画结束
             TimeUnit.SECONDS.sleep(5L)
-            //关闭悬浮窗口
-            it.findElement(AppiumBy.id("com.yijiuyijiu.eshop:id/btn_close")).click()
+            //点击进入-我的
+            it.executeScript("mobile: clickGesture", ImmutableMap.of("x", 969, "y", 2295))
             //进入茅台页面
             it.findElement(
                 AppiumBy.androidUIAutomator(
@@ -76,6 +77,6 @@ class ZhenkuaileSeckillService(
 
     companion object {
 
-        private val log = LoggerFactory.getLogger(ZhenkuaileSeckillService::class.java)
+        private val log = LoggerFactory.getLogger(ZhenkuaileService::class.java)
     }
 }

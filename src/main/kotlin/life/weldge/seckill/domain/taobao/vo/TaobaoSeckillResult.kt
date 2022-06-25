@@ -4,7 +4,7 @@ import life.weldge.seckill.domain.BaseResult
 import life.weldge.seckill.domain.ResultState
 import life.weldge.seckill.domain.RunAction
 
-class TaobaoResult : BaseResult {
+class TaobaoSeckillResult : BaseResult {
 
     override val platform: String? = "淘宝"
     override val action: RunAction = RunAction.SECKILL
@@ -16,12 +16,12 @@ class TaobaoResult : BaseResult {
     }
 
     companion object {
-        fun success(): TaobaoResult {
-            return TaobaoResult(ResultState.SUCCESS)
+        fun success(): TaobaoSeckillResult {
+            return TaobaoSeckillResult(ResultState.SUCCESS)
         }
 
-        fun fails(): TaobaoResult {
-            return TaobaoResult(ResultState.FAILS)
+        fun fails(): TaobaoSeckillResult {
+            return TaobaoSeckillResult(ResultState.FAILS)
         }
     }
 }

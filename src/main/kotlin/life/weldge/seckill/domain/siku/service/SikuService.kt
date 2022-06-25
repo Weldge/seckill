@@ -12,7 +12,7 @@ import java.time.Duration
 import java.util.concurrent.TimeUnit
 
 @Service
-class SikuSeckillService(
+class SikuService(
     val driver: DriverJd
 ) {
 
@@ -74,6 +74,6 @@ class SikuSeckillService(
         private const val detail =
             "https://item.m.jd.com/product/100012043978.html?gx=RnFjkTVbbj2PmtQUqId1VOmfpTE6-g&ad_od=share&utm_source=androidapp&utm_medium=appshare&utm_campaign=t_335139774&utm_term=CopyURL"
 
-        private val log = LoggerFactory.getLogger(SikuSeckillService::class.java)
+        private val log = LoggerFactory.getLogger(SikuService::class.java)
     }
 }

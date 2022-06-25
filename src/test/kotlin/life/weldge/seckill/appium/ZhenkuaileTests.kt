@@ -4,15 +4,16 @@
 //import org.springframework.beans.factory.annotation.Autowired
 //import org.springframework.boot.test.context.SpringBootTest
 //import life.weldge.seckill.config.DriverZhenkuaile
-//import life.weldge.seckill.domain.zhenkuaile.service.ZhenkuaileSeckillService
+//import life.weldge.seckill.domain.zhenkuaile.service.ZhenkuaileService
 //
 //@SpringBootTest
 //class ZhenkuaileTests {
 //
 //    @Autowired
 //    private val driver: DriverZhenkuaile? = null
+//
 //    @Autowired
-//    private val service: ZhenkuaileSeckillService? = null
+//    private val service: ZhenkuaileService? = null
 //
 //    @Test
 //    fun connect() {

@@ -2,7 +2,7 @@ package life.weldge.seckill.domain.taobao.service
 
 import io.appium.java_client.AppiumBy
 import life.weldge.seckill.config.DriverYiJiuYiJiu
-import life.weldge.seckill.domain.taobao.vo.TaobaoResult
+import life.weldge.seckill.domain.taobao.vo.TaobaoSeckillResult
 import org.openqa.selenium.support.ui.ExpectedConditions
 import org.openqa.selenium.support.ui.WebDriverWait
 import org.slf4j.LoggerFactory
@@ -15,7 +15,7 @@ class TaobaoSeckillService(
     val driver: DriverYiJiuYiJiu
 ) {
 
-    fun seckillMaotai(): TaobaoResult {
+    fun seckillMaotai(): TaobaoSeckillResult {
         driver.getAndroidDriver().let { //设置全局隐式等待
             //线程睡眠等待首页动画结束
             TimeUnit.SECONDS.sleep(5L)
@@ -31,13 +31,13 @@ class TaobaoSeckillService(
                     )
                 )
                 it.findElement(AppiumBy.id("com.jd.lib.productdetail.feature:id/g")).click()
-                return TaobaoResult.success()
+                return TaobaoSeckillResult.success()
             } catch (e: Exception) {
                 log.error("<淘宝>,抢购失败，原因：'{}'.", e.message)
             } finally {
                 it.closeApp()
             }
-            return TaobaoResult.fails()
+            return TaobaoSeckillResult.fails()
         }
     }
 

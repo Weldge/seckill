@@ -6,6 +6,6 @@ open class BaseResult() {
 
     open val action: RunAction? = null
 
-    open var result: ResultState? = null
+    open var result: ResultState? = ResultState.FAILS
 
 }

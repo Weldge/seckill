@@ -12,7 +12,7 @@ import java.time.Duration
 import java.util.concurrent.TimeUnit
 
 @Service
-class YiJiuYiJiuSeckillService(
+class YiJiuYiJiuService(
     val driver: DriverYiJiuYiJiu
 ) {
 
@@ -77,6 +77,6 @@ class YiJiuYiJiuSeckillService(
 
     companion object {
 
-        private val log = LoggerFactory.getLogger(YiJiuYiJiuSeckillService::class.java)
+        private val log = LoggerFactory.getLogger(YiJiuYiJiuService::class.java)
     }
 }
