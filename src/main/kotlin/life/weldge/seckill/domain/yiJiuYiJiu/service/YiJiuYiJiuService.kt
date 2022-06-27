@@ -92,7 +92,7 @@ class YiJiuYiJiuService(
                 it.findElement(AppiumBy.id("com.yijiuyijiu.eshop:id/btnBuy")).click()
                 TimeUnit.SECONDS.sleep(2L)
                 //向上拖动确认页面
-                it.executeScript("mobile: dragGesture", ImmutableMap.of("startX", 341, "startY", 2303, "endX", 347, "endY", 739))
+                it.executeScript("mobile: dragGesture", ImmutableMap.of("startX", 512, "startY", 2215, "endX", 550, "endY", 259))
                 TimeUnit.SECONDS.sleep(2L)
                 //点击收货地址
                 it.executeScript("mobile: clickGesture", ImmutableMap.of("x", 635, "y", 1430))
@@ -104,13 +104,17 @@ class YiJiuYiJiuService(
                 it.executeScript("mobile: clickGesture", ImmutableMap.of("x", 747, "y", 1265))
                 TimeUnit.SECONDS.sleep(2L)
                 //向上拖动确认页面
-                it.executeScript("mobile: dragGesture", ImmutableMap.of("startX", 341, "startY", 2303, "endX", 347, "endY", 739))
+                it.executeScript("mobile: dragGesture", ImmutableMap.of("startX", 512, "startY", 2215, "endX", 550, "endY", 259))
                 //点击平台确认协议
                 it.executeScript("mobile: clickGesture", ImmutableMap.of("x", 104, "y", 1738))
                 TimeUnit.SECONDS.sleep(2L)
                 //点击立即预约
-                it.executeScript("mobile: clickGesture", ImmutableMap.of("x", 104, "y", 1738))
-
+                it.executeScript("mobile: clickGesture", ImmutableMap.of("x", 537, "y", 2024))
+                TimeUnit.SECONDS.sleep(2L)
+                //判断是否成功-弹窗元素存在即为成功
+                it.findElement(AppiumBy.androidUIAutomator("new UiSelector().text(\"NHFMZKDDCT-1Y3VV25APP9A6RAEM7YY\")"))?.let {
+                    return YiJiuYiJiuReserveResult.success()
+                }
                 return YiJiuYiJiuReserveResult.fails()
             } catch (e: org.openqa.selenium.NoSuchElementException) {
                 log.warn("预约发生异常，平台：1919吃喝，原因：'{}'。", e.message)
