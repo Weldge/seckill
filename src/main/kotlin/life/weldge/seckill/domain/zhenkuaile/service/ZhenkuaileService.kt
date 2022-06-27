@@ -2,6 +2,7 @@ package life.weldge.seckill.domain.zhenkuaile.service
 
 import com.google.common.collect.ImmutableMap
 import io.appium.java_client.AppiumBy
+import life.weldge.seckill.config.DriverImoutai
 import life.weldge.seckill.config.DriverYiJiuYiJiu
 import life.weldge.seckill.domain.zhenkuaile.vo.ZhenkuaileReserveResult
 import life.weldge.seckill.domain.zhenkuaile.vo.ZhenkuaileSeckillResult
@@ -14,7 +15,8 @@ import java.util.concurrent.TimeUnit
 
 @Service
 class ZhenkuaileService(
-    val driver: DriverYiJiuYiJiu
+    val driver: DriverYiJiuYiJiu,
+    val driverImoutai: DriverImoutai,
 ) {
 
     fun seckillMaotai(): ZhenkuaileSeckillResult {
@@ -32,46 +34,39 @@ class ZhenkuaileService(
                     )
                 )
                 it.findElement(AppiumBy.id("com.jd.lib.productdetail.feature:id/g")).click()
-                return ZhenkuaileSeckillResult.success()
+                return ZhenkuaileSeckillResult.fails()
             } catch (e: Exception) {
-                log.error("<1919吃喝>,抢购失败，原因：'{}'.", e.message)
+                log.warn("抢购发生异常，平台：真快乐，原因：'{}'。", e.message)
+                return ZhenkuaileSeckillResult.fails()
             } finally {
                 it.closeApp()
             }
-            return ZhenkuaileSeckillResult.fails()
         }
     }
 
     fun reserveMaotai(): ZhenkuaileReserveResult {
-        driver.getAndroidDriver().let {
+        driverImoutai.getAndroidDriver().let {
             //线程睡眠等待首页动画结束
             TimeUnit.SECONDS.sleep(5L)
-            //点击进入-我的
-            it.executeScript("mobile: clickGesture", ImmutableMap.of("x", 969, "y", 2295))
-            //进入茅台页面
-            it.findElement(
-                AppiumBy.androidUIAutomator(
-                    "new UiSelector().resourceId(\"com.yijiuyijiu.eshop:id/tvName\").text(\"抢茅台\")"
-                )
-            ).click()
-
             try {
-                WebDriverWait(it, Duration.ofSeconds(70), Duration.ofMillis(10)).until(
-                    ExpectedConditions.attributeToBe(
-                        AppiumBy.id("com.jd.lib.productdetail.feature:id/g"),
-                        "text",
-                        "立即预约"
-                    )
-                )
-                it.findElement(AppiumBy.id("com.jd.lib.productdetail.feature:id/g")).click()
-                return ZhenkuaileReserveResult.success()
+                //点击进入-我的
+                it.executeScript("mobile: clickGesture", ImmutableMap.of("x", 971, "y", 2302))
+                TimeUnit.SECONDS.sleep(2L)
+                //点击收藏
+                it.executeScript("mobile: clickGesture", ImmutableMap.of("x", 131, "y", 721))
+                TimeUnit.SECONDS.sleep(2L)
+                //点击收藏列表第一项-进入茅台详情页
+                it.executeScript("mobile: clickGesture", ImmutableMap.of("x", 563, "y", 658))
+                TimeUnit.SECONDS.sleep(2L)
+
+                return ZhenkuaileReserveResult.fails()
             } catch (e: org.openqa.selenium.NoSuchElementException) {
-                log.error("<1919吃喝>,预约失败，原因：" + e.message)
+                log.warn("预约发生异常，平台：真快乐，原因：'{}'。", e.message)
+                return ZhenkuaileReserveResult.fails()
             } finally {
                 //退出app
                 it.closeApp()
             }
-            return ZhenkuaileReserveResult.fails()
         }
     }
 

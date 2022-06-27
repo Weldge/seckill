@@ -4,7 +4,9 @@
 //import org.springframework.beans.factory.annotation.Autowired
 //import org.springframework.boot.test.context.SpringBootTest
 //import life.weldge.seckill.config.DriverZhenkuaile
+//import life.weldge.seckill.domain.ResultState
 //import life.weldge.seckill.domain.zhenkuaile.service.ZhenkuaileService
+//import java.util.concurrent.TimeUnit
 //
 //@SpringBootTest
 //class ZhenkuaileTests {
@@ -17,18 +19,20 @@
 //
 //    @Test
 //    fun connect() {
-//        var driver = driver!!.getAndroidDriver()
-//        driver.closeApp()
+//        driver!!.getAndroidDriver().let {
+//            TimeUnit.SECONDS.sleep(3L)
+//            it.closeApp()
+//        }
 //    }
 //
 //    @Test
 //    fun seckillMaotai() {
-//        service!!.seckillMaotai()
+//        assert(ResultState.SUCCESS == service!!.seckillMaotai().result)
 //    }
 //
 //    @Test
 //    fun reserveMaotai() {
-//        service!!.reserveMaotai()
+//        assert(ResultState.SUCCESS == service!!.reserveMaotai().result)
 //    }
 //
 //}
