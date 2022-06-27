@@ -57,9 +57,9 @@ class ReserveTrigger(
         sikuService.reserveMaotai().let {
             result.add(it)
         }
-        xiaomiService.reserveMaotai().let {
-            result.add(it)
-        }
+//        xiaomiService.reserveMaotai().let {
+//            result.add(it)
+//        }
         yiJiuYiJiuService.reserveMaotai().let {
             result.add(it)
         }
