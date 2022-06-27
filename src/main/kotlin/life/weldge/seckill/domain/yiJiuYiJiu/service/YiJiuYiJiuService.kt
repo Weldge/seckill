@@ -84,18 +84,34 @@ class YiJiuYiJiuService(
                 TimeUnit.SECONDS.sleep(3L)
                 //点击立即预约
                 it.executeScript("mobile: clickGesture", ImmutableMap.of("x", 570, "y", 1900))
+                TimeUnit.SECONDS.sleep(2L)
                 //点击立即预约
                 it.findElement(AppiumBy.id("com.yijiuyijiu.eshop:id/tv_buy")).click()
-                //点击弹窗立即预约
+                TimeUnit.SECONDS.sleep(2L)
+                //点击弹窗立即预约-进入确认页面
                 it.findElement(AppiumBy.id("com.yijiuyijiu.eshop:id/btnBuy")).click()
-//                WebDriverWait(it, Duration.ofSeconds(70), Duration.ofMillis(10)).until(
-//                    ExpectedConditions.attributeToBe(
-//                        AppiumBy.id("com.jd.lib.productdetail.feature:id/g"),
-//                        "text",
-//                        "立即预约"
-//                    )
-//                )
-                return YiJiuYiJiuReserveResult.success()
+                TimeUnit.SECONDS.sleep(2L)
+                //向上拖动确认页面
+                it.executeScript("mobile: dragGesture", ImmutableMap.of("startX", 341, "startY", 2303, "endX", 347, "endY", 739))
+                TimeUnit.SECONDS.sleep(2L)
+                //点击收货地址
+                it.executeScript("mobile: clickGesture", ImmutableMap.of("x", 635, "y", 1430))
+                TimeUnit.SECONDS.sleep(2L)
+                //选择收货地址
+                it.executeScript("mobile: clickGesture", ImmutableMap.of("x", 481, "y", 448))
+                TimeUnit.SECONDS.sleep(2L)
+                //点击确定按钮回到确认页面
+                it.executeScript("mobile: clickGesture", ImmutableMap.of("x", 747, "y", 1265))
+                TimeUnit.SECONDS.sleep(2L)
+                //向上拖动确认页面
+                it.executeScript("mobile: dragGesture", ImmutableMap.of("startX", 341, "startY", 2303, "endX", 347, "endY", 739))
+                //点击平台确认协议
+                it.executeScript("mobile: clickGesture", ImmutableMap.of("x", 104, "y", 1738))
+                TimeUnit.SECONDS.sleep(2L)
+                //点击立即预约
+                it.executeScript("mobile: clickGesture", ImmutableMap.of("x", 104, "y", 1738))
+
+                return YiJiuYiJiuReserveResult.fails()
             } catch (e: org.openqa.selenium.NoSuchElementException) {
                 log.warn("预约发生异常，平台：1919吃喝，原因：'{}'。", e.message)
                 return YiJiuYiJiuReserveResult.fails()
