@@ -28,13 +28,24 @@ class SuningService(
                 )?.let {element ->
                     element.click()
                 }
+                //返回
+//                it.findElement(
+//                    AppiumBy.id("com.suning.mobile.ebuy:id/btn_back")
+//                )?.let {element ->
+//                    element.click()
+//                }
+                while (true) {
+                    //点击抢购
+                    it.executeScript("mobile: clickGesture", ImmutableMap.of("x", 766, "y", 2295))
+                }
+
                 return SuningSeckillResult.fails()
             } catch (e: Exception) {
                 log.error("京东抢购失败，原因：'{}'.", e.message)
+                return SuningSeckillResult.fails()
             } finally {
                 it.closeApp()
             }
-            return SuningSeckillResult.fails()
         }
     }
 

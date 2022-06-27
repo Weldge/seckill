@@ -4,7 +4,9 @@
 //import org.springframework.beans.factory.annotation.Autowired
 //import org.springframework.boot.test.context.SpringBootTest
 //import life.weldge.seckill.config.DriverSuning
+//import life.weldge.seckill.domain.ResultState
 //import life.weldge.seckill.domain.suning.service.SuningService
+//import org.junit.jupiter.api.Assertions.assertEquals
 //import java.util.concurrent.TimeUnit
 //
 //@SpringBootTest
@@ -25,12 +27,16 @@
 //
 //    @Test
 //    fun seckillMaotai() {
-//        service!!.seckillMaotai()
+//        service!!.seckillMaotai().let {
+//            assertEquals(ResultState.SUCCESS, it.result)
+//        }
 //    }
 //
 //    @Test
 //    fun reserveMaotai() {
-//        service!!.reserveMaotai()
+//        service!!.reserveMaotai().let {
+//            assertEquals(ResultState.SUCCESS, it.result)
+//        }
 //    }
 //
 //}
