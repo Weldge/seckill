@@ -37,11 +37,14 @@ class SuningService(
                 while (true) {
                     //点击抢购
                     it.executeScript("mobile: clickGesture", ImmutableMap.of("x", 766, "y", 2295))
+//                    it.findElement(AppiumBy.id("com.suning.mobile.ebuy:id/tv_reserv_appoitnt")).let {element ->
+//                        element.click()
+//                    }
                 }
 
                 return SuningSeckillResult.fails()
             } catch (e: Exception) {
-                log.error("京东抢购失败，原因：'{}'.", e.message)
+                log.warn("抢购发生异常，平台：苏宁，原因：'{}'。", e.message)
                 return SuningSeckillResult.fails()
             } finally {
                 it.closeApp()

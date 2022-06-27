@@ -19,14 +19,15 @@
 //
 //    @Test
 //    fun connect() {
-//        var driver = driverJd!!.getAndroidDriver()
-//        TimeUnit.SECONDS.sleep(5L)
-//        driver.closeApp()
+//        driverJd!!.getAndroidDriver().let {
+//            TimeUnit.SECONDS.sleep(5L)
+//            it.closeApp()
+//        }
 //    }
 //
 //    @Test
 //    fun seckillMaotai() {
-//        service!!.seckillMaotai()
+//        assert(ResultState.SUCCESS == service!!.seckillMaotai().result)
 //    }
 //
 //    @Test

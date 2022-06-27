@@ -1,6 +1,7 @@
 //package life.weldge.seckill.appium
 //
 //import life.weldge.seckill.config.DriverYanxuan
+//import life.weldge.seckill.domain.ResultState
 //import org.junit.jupiter.api.Test
 //import org.springframework.beans.factory.annotation.Autowired
 //import org.springframework.boot.test.context.SpringBootTest
@@ -18,19 +19,20 @@
 //
 //    @Test
 //    fun connect() {
-//        var driver = driver!!.getAndroidDriver()
-//        TimeUnit.SECONDS.sleep(3L)
-//        driver.closeApp()
+//        driver!!.getAndroidDriver().let {
+//            TimeUnit.SECONDS.sleep(3L)
+//            it.closeApp()
+//        }
 //    }
 //
 //    @Test
 //    fun seckillMaotai() {
-//        service!!.seckillMaotai()
+//        assert(ResultState.SUCCESS == service!!.seckillMaotai().result)
 //    }
 //
 //    @Test
 //    fun reserveMaotai() {
-//        service!!.reserveMaotai()
+//        assert(ResultState.SUCCESS == service!!.reserveMaotai().result)
 //    }
 //
 //}
