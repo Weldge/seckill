@@ -11,8 +11,8 @@ scheduled:
   reserve:
     enabled: true
     cron:
-      one: "0 30 10 * * * *"  #每天10:30
-      two: "0 30 19 * * * *" #每天17:30
+      one: "0 35 10 * * * *"  #每天10:35
+      two: "0 40 19 * * * *" #每天17:40
 
 platform:
   android:

@@ -30,11 +30,10 @@ class EmailService(
     }
 
     fun handleResultToHtmlContent(result: List<BaseResult>): String {
-        var html = "<html>\n<body>\n"
+        var html = "预约结果列表：\n"
         result.forEach {
-            html = "$html <p>${it.platform}, ${it.action!!.description}${it.result!!.description}</p>\n"
+            html = "$html ${it.platform}, ${it.action!!.description}${it.result!!.description}\n"
         }
-        html = "$html</body>\n</html>\n"
         return html
     }
 

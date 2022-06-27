@@ -71,6 +71,7 @@ class YanxuanService(
                     if (element.text == "立即预约") element.click()
                     //点击坐标-立即预约
                     it.executeScript("mobile: clickGesture", ImmutableMap.of("x", 535, "y", 2278))
+                    TimeUnit.SECONDS.sleep(3L)
                     return YanxuanReserveResult.success()
                 }
                 return YanxuanReserveResult.fails()

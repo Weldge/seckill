@@ -21,8 +21,10 @@ class SikuService(
         driver.getAndroidDriver().let { //设置全局隐式等待
             //线程睡眠等待首页动画结束
             TimeUnit.SECONDS.sleep(5L)
-            //等待详情页加载完毕
-            TimeUnit.SECONDS.sleep(5L)
+            //判断弹窗
+            it.findElement(AppiumBy.id("com.secoo:id/ic_global_pop_close"))?.let {popElement ->
+                popElement.click()
+            }
             try {
                 WebDriverWait(it, Duration.ofSeconds(70), Duration.ofMillis(10L)).until(
                     ExpectedConditions.attributeToBe(
@@ -46,19 +48,22 @@ class SikuService(
         driver.getAndroidDriver().let {
             //线程睡眠等待首页动画结束
             TimeUnit.SECONDS.sleep(5L)
-
+            //判断弹窗
+            it.findElement(AppiumBy.id("com.secoo:id/ic_global_pop_close"))?.let {popElement ->
+                popElement.click()
+            }
             try {
                 //点击我的
                 it.executeScript("mobile: clickGesture", ImmutableMap.of("x", 967, "y", 2307))
                 TimeUnit.SECONDS.sleep(2L)
                 //点击收藏
-                it.executeScript("mobile: clickGesture", ImmutableMap.of("x", 164, "y", 512))
+                it.executeScript("mobile: clickGesture", ImmutableMap.of("x", 173, "y", 516))
                 TimeUnit.SECONDS.sleep(2L)
                 //点击进入茅台详情页面
-                it.executeScript("mobile: clickGesture", ImmutableMap.of("x", 568, "y", 389))
+                it.executeScript("mobile: clickGesture", ImmutableMap.of("x", 580, "y", 455))
                 TimeUnit.SECONDS.sleep(2L)
                 //点击预约
-                it.executeScript("mobile: clickGesture", ImmutableMap.of("x", 760, "y", 2287))
+                it.executeScript("mobile: clickGesture", ImmutableMap.of("x", 760, "y", 2291))
                 TimeUnit.SECONDS.sleep(2L)
                 it.findElement(AppiumBy.id("com.secoo:id/tv_only_sure_dialog_title"))?.let {resultElement ->
                     if (resultElement.text == "预约成功") return SikuReserveResult.success()

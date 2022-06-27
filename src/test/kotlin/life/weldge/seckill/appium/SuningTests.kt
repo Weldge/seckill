@@ -27,16 +27,12 @@
 //
 //    @Test
 //    fun seckillMaotai() {
-//        service!!.seckillMaotai().let {
-//            assertEquals(ResultState.SUCCESS, it.result)
-//        }
+//        assertEquals(ResultState.SUCCESS, service!!.seckillMaotai().result)
 //    }
 //
 //    @Test
 //    fun reserveMaotai() {
-//        service!!.reserveMaotai().let {
-//            assertEquals(ResultState.SUCCESS, it.result)
-//        }
+//        assertEquals(ResultState.SUCCESS, service!!.reserveMaotai().result)
 //    }
 //
 //}
