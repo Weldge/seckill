@@ -25,7 +25,7 @@ class ReserveTrigger(
     val sikuService: SikuService,
     val suningService: SuningService,
     val xiaomiService: XiaomiService,
-){
+) {
 
     @Scheduled(cron = "\${scheduled.reserve.cron.one}")
     fun reserveOne() {
@@ -44,7 +44,7 @@ class ReserveTrigger(
         }
         emailService.sendEmail(
             "${LocalDate.now()},上午场预约结果通知",
-            handleReserveResult(result)
+            emailService.handleResultToHtmlContent(result)
         )
     }
 
@@ -68,16 +68,7 @@ class ReserveTrigger(
         }
         emailService.sendEmail(
             "${LocalDate.now()},下午场预约结果通知",
-            handleReserveResult(result)
+            emailService.handleResultToHtmlContent(result)
         )
-    }
-
-    private fun handleReserveResult(result: List<BaseResult>): String {
-        var html = "<html>\n<body>\n"
-        result.forEach {
-            html = "$html <p>${it.platform}, ${it.action!!.description}${it.result!!.description}</p>\n"
-        }
-        html = "$html</body>\n</html>\n"
-        return html
     }
 }

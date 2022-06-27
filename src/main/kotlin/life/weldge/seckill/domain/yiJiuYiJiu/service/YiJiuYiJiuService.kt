@@ -24,7 +24,7 @@ class YiJiuYiJiuService(
             TimeUnit.SECONDS.sleep(5L)
             //进入茅台页面
             it.executeScript("mobile: clickGesture", ImmutableMap.of("x", 524, "y", 1396))
-            TimeUnit.SECONDS.sleep(4L)
+            TimeUnit.SECONDS.sleep(3L)
             try {
                 //点击我的预约，进入预约列表
                 it.executeScript("mobile: clickGesture", ImmutableMap.of("x", 580, "y", 2115))

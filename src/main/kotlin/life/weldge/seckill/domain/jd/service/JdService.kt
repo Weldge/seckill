@@ -10,6 +10,7 @@ import org.openqa.selenium.support.ui.WebDriverWait
 import org.slf4j.LoggerFactory
 import org.springframework.stereotype.Service
 import java.time.Duration
+import java.time.LocalDateTime
 import java.util.concurrent.TimeUnit
 
 @Service
@@ -20,10 +21,10 @@ class JdService(
     fun seckillMaotai(): JdSeckillResult {
         driver.getAndroidDriver().let { //设置全局隐式等待
             //线程睡眠等待首页动画结束
-            TimeUnit.SECONDS.sleep(5L)
+            TimeUnit.SECONDS.sleep(6L)
             it.get(detail)
             //等待详情页加载完毕
-            TimeUnit.SECONDS.sleep(5L)
+            TimeUnit.SECONDS.sleep(4L)
             try {
                 WebDriverWait(it, Duration.ofSeconds(70), Duration.ofMillis(20L)).until(
                     ExpectedConditions.attributeToBe(
@@ -36,6 +37,7 @@ class JdService(
                 //持续点击提交订单
                 while (true) {
                     it.executeScript("mobile: clickGesture", ImmutableMap.of("x", 917, "y", 2281))
+                    if (LocalDateTime.now().minute >= 10) return JdSeckillResult.fails()
                 }
                 return JdSeckillResult.fails()
             } catch (e: Exception) {

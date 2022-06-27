@@ -1,5 +1,6 @@
 package life.weldge.seckill.service
 
+import life.weldge.seckill.domain.BaseResult
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 import org.springframework.beans.factory.annotation.Value
@@ -26,6 +27,15 @@ class EmailService(
         } catch (e: Exception) {
             log.error("send email error, message: {}.", e.message)
         }
+    }
+
+    fun handleResultToHtmlContent(result: List<BaseResult>): String {
+        var html = "<html>\n<body>\n"
+        result.forEach {
+            html = "$html <p>${it.platform}, ${it.action!!.description}${it.result!!.description}</p>\n"
+        }
+        html = "$html</body>\n</html>\n"
+        return html
     }
 
     companion object {

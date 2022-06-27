@@ -7,6 +7,7 @@ import life.weldge.seckill.domain.suning.vo.SuningReserveResult
 import life.weldge.seckill.domain.suning.vo.SuningSeckillResult
 import org.slf4j.LoggerFactory
 import org.springframework.stereotype.Service
+import java.time.LocalDateTime
 import java.util.concurrent.TimeUnit
 
 @Service
@@ -21,13 +22,14 @@ class SuningService(
             try {
                 //点击进入-我的易购
                 it.executeScript("mobile: clickGesture", ImmutableMap.of("x", 965, "y", 2304))
-                TimeUnit.SECONDS.sleep(1L)
+                TimeUnit.SECONDS.sleep(4L)
                 //从我的预约中-进入茅台详情页
                 it.findElement(
                     AppiumBy.id("com.suning.mobile.ebuy:id/rv_reservation_detail")
                 )?.let {element ->
                     element.click()
                 }
+                TimeUnit.SECONDS.sleep(2L)
                 //返回
 //                it.findElement(
 //                    AppiumBy.id("com.suning.mobile.ebuy:id/btn_back")
@@ -40,6 +42,8 @@ class SuningService(
 //                    it.findElement(AppiumBy.id("com.suning.mobile.ebuy:id/tv_reserv_appoitnt")).let {element ->
 //                        element.click()
 //                    }
+                    if (LocalDateTime.now().minute >= 40) return SuningSeckillResult.fails()
+
                 }
 
                 return SuningSeckillResult.fails()

@@ -31,7 +31,7 @@ platform:
     taobao:
       scheduled:
         enabled: true
-        cron: "30 59 19 * * * *" #每天20:00
+        cron: "40 59 19 * * * *" #每天20:00
       connect:
         udid: "8e156534"
         unlockType: "pattern"
@@ -44,7 +44,7 @@ platform:
       scheduled:
         enabled: true
         cron:
-          seckill: "30 59 11 ? * 1-5 *" #工作日12:00
+          seckill: "42 59 11 ? * 1-5 *" #工作日12:00
       connect:
         udid: "8e156534"
         unlockType: "pattern"
@@ -57,7 +57,7 @@ platform:
       scheduled:
         enabled: true
         cron:
-          seckill: "30 29 9 * * * *" #工作日12:00
+          seckill: "42 29 0 ? * 1-5 *" #工作日9:30
       connect:
         udid: "8e156534"
         unlockType: "pattern"
@@ -68,6 +68,11 @@ platform:
         appActivity: "com.suning.mobile.ebuy.host.InitialActivity"
     yijiu:
       scheduled:
+        enabled: true
+        cron:
+          seckill:
+            one: "37 59 9 * * * *" #每天10:00
+            two: "37 59 16 * * * *" #每天17:00
       connect:
         udid: "8e156534"
         unlockType: "pattern"
@@ -78,6 +83,9 @@ platform:
         appActivity: "com.b2c1919.app.ui.launch.LaunchActivity"
     siku:
       scheduled:
+        enabled: false
+        cron:
+          seckill: "44 59 9 * * * *" #每天10:00
       connect:
         udid: "8e156534"
         unlockType: "pattern"
@@ -88,6 +96,11 @@ platform:
         appActivity: "com.secoo.app.mvp.ui.activity.LauncherActivity"
     yanxuan:
       scheduled:
+        enabled: true
+        cron:
+          seckill:
+            one: "40 59 10 * * * *" #每天11:00
+            two: "40 59 21 * * * *" #每天22:00
       connect:
         udid: "8e156534"
         unlockType: "pattern"
@@ -98,6 +111,9 @@ platform:
         appActivity: ".module.mainpage.activity.MainPageActivity"
     xiaomi:
       scheduled:
+        enabled: false
+        cron:
+          seckill: "44 59 9 * * * *" #每天10:00
       connect:
         udid: "8e156534"
         unlockType: "pattern"
@@ -108,6 +124,8 @@ platform:
         appActivity: "com.xiaomi.youpin.activity.SplashActivity"
     zhenkuaile:
       scheduled:
+        enabled: false
+        cron: "40 59 19 * * * *" #每天20:00
       connect:
         udid: "8e156534"
         unlockType: "pattern"
