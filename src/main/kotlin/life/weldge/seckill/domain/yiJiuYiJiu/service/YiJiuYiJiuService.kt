@@ -5,8 +5,11 @@ import io.appium.java_client.AppiumBy
 import life.weldge.seckill.config.DriverYiJiuYiJiu
 import life.weldge.seckill.domain.yiJiuYiJiu.vo.YiJiuYiJiuReserveResult
 import life.weldge.seckill.domain.yiJiuYiJiu.vo.YiJiuYiJiuSeckillResult
+import org.openqa.selenium.support.ui.ExpectedConditions
+import org.openqa.selenium.support.ui.WebDriverWait
 import org.slf4j.LoggerFactory
 import org.springframework.stereotype.Service
+import java.time.Duration
 import java.time.LocalDateTime
 import java.util.concurrent.TimeUnit
 
@@ -37,28 +40,28 @@ class YiJiuYiJiuService(
                 TimeUnit.SECONDS.sleep(1L)
                 //关闭数量弹窗-回到详情页，等待抢购
                 it.findElement(AppiumBy.id("com.yijiuyijiu.eshop:id/iconClose")).click()
+                WebDriverWait(it, Duration.ofSeconds(70), Duration.ofMillis(20L)).until(
+                    ExpectedConditions.attributeToBe(
+                        AppiumBy.id("com.yijiuyijiu.eshop:id/tv_buy"),
+                        "text",
+                        "立即抢购"
+                    )
+                )
                 while (true) {
                     //点击立即抢购-进入弹窗页
-                    it.findElement(
-                        AppiumBy.id("com.yijiuyijiu.eshop:id/tv_buy")
-                    )?.let { element ->
-                        //判断抢购是否已开始
-                        if(element.text == "立即抢购") {
-                            element.click()
-                            //点击弹窗页面-立即抢购
-                            it.findElement(AppiumBy.id("com.yijiuyijiu.eshop:id/btnBuy")).click()
-                            //判断抢购结果弹窗
-                            it.findElement(AppiumBy.id("com.yijiuyijiu.eshop:id/titleTv")).let { resultElement ->
-                                if (resultElement.text == "抢购失败") {
-                                    //关闭
-                                    it.findElement(AppiumBy.id("com.yijiuyijiu.eshop:id/confirmTextView")).click()
-                                }else {
-                                    return YiJiuYiJiuSeckillResult.success()
-                                }
-                            }
+                    it.findElement(AppiumBy.id("com.yijiuyijiu.eshop:id/tv_buy")).click()
+                    //点击弹窗页面-立即抢购
+                    it.findElement(AppiumBy.id("com.yijiuyijiu.eshop:id/btnBuy")).click()
+                    //判断抢购结果弹窗
+                    it.findElement(AppiumBy.id("com.yijiuyijiu.eshop:id/titleTv")).let { resultElement ->
+                        if (resultElement.text == "抢购失败") {
+                            //关闭
+                            it.findElement(AppiumBy.id("com.yijiuyijiu.eshop:id/confirmTextView")).click()
+                        }else {
+                            return YiJiuYiJiuSeckillResult.success()
                         }
-                        if (LocalDateTime.now().minute >= 20) return YiJiuYiJiuSeckillResult.fails()
                     }
+                    if (LocalDateTime.now().minute >= 20) return YiJiuYiJiuSeckillResult.fails()
                 }
                 return YiJiuYiJiuSeckillResult.fails()
             } catch (e: Exception) {
@@ -111,11 +114,7 @@ class YiJiuYiJiuService(
                 //点击立即预约
                 it.executeScript("mobile: clickGesture", ImmutableMap.of("x", 537, "y", 2024))
                 TimeUnit.SECONDS.sleep(2L)
-                //判断是否成功-弹窗元素存在即为成功
-                it.findElement(AppiumBy.androidUIAutomator("new UiSelector().text(\"NHFMZKDDCT-1Y3VV25APP9A6RAEM7YY\")"))?.let {
-                    return YiJiuYiJiuReserveResult.success()
-                }
-                return YiJiuYiJiuReserveResult.fails()
+                return YiJiuYiJiuReserveResult.success()
             } catch (e: org.openqa.selenium.NoSuchElementException) {
                 log.warn("预约发生异常，平台：1919吃喝，原因：'{}'。", e.message)
                 return YiJiuYiJiuReserveResult.fails()

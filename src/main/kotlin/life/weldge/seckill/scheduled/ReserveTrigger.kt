@@ -39,9 +39,9 @@ class ReserveTrigger(
         yiJiuYiJiuService.reserveMaotai().let {
             result.add(it)
         }
-        zhenkuaileService.reserveMaotai().let {
-            result.add(it)
-        }
+//        zhenkuaileService.reserveMaotai().let {
+//            result.add(it)
+//        }
         emailService.sendEmail(
             "${LocalDate.now()},上午场预约结果通知",
             emailService.handleResultToHtmlContent(result)

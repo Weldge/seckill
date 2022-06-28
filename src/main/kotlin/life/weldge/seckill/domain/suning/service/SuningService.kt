@@ -39,10 +39,8 @@ class SuningService(
                 while (true) {
                     //点击抢购
                     it.executeScript("mobile: clickGesture", ImmutableMap.of("x", 766, "y", 2295))
-//                    it.findElement(AppiumBy.id("com.suning.mobile.ebuy:id/tv_reserv_appoitnt")).let {element ->
-//                        element.click()
-//                    }
-                    if (LocalDateTime.now().minute >= 40) return SuningSeckillResult.fails()
+
+                    if (LocalDateTime.now().minute >= 33) return SuningSeckillResult.fails()
 
                 }
 
