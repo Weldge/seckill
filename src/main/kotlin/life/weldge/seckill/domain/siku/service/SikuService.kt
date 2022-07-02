@@ -2,7 +2,8 @@ package life.weldge.seckill.domain.siku.service
 
 import com.google.common.collect.ImmutableMap
 import io.appium.java_client.AppiumBy
-import life.weldge.seckill.config.DriverJd
+import io.appium.java_client.android.AndroidDriver
+import life.weldge.seckill.config.DriverSiku
 import life.weldge.seckill.domain.siku.vo.SikuReserveResult
 import life.weldge.seckill.domain.siku.vo.SikuSeckillResult
 import org.openqa.selenium.support.ui.ExpectedConditions
@@ -14,17 +15,16 @@ import java.util.concurrent.TimeUnit
 
 @Service
 class SikuService(
-    val driver: DriverJd
+    val driver: DriverSiku
 ) {
 
     fun seckillMaotai(): SikuSeckillResult {
         driver.getAndroidDriver().let { //设置全局隐式等待
             //线程睡眠等待首页动画结束
             TimeUnit.SECONDS.sleep(5L)
-            //判断弹窗
-            it.findElement(AppiumBy.id("com.secoo:id/ic_global_pop_close"))?.let {popElement ->
-                popElement.click()
-            }
+            //关闭悬浮窗口
+            closePopElement(it)
+            TimeUnit.SECONDS.sleep(2L)
             try {
                 WebDriverWait(it, Duration.ofSeconds(70), Duration.ofMillis(10L)).until(
                     ExpectedConditions.attributeToBe(
@@ -48,10 +48,9 @@ class SikuService(
         driver.getAndroidDriver().let {
             //线程睡眠等待首页动画结束
             TimeUnit.SECONDS.sleep(5L)
-            //判断弹窗
-            it.findElement(AppiumBy.id("com.secoo:id/ic_global_pop_close"))?.let {popElement ->
-                popElement.click()
-            }
+            //关闭悬浮窗口
+            closePopElement(it)
+            TimeUnit.SECONDS.sleep(2L)
             try {
                 //点击我的
                 it.executeScript("mobile: clickGesture", ImmutableMap.of("x", 967, "y", 2307))
@@ -79,6 +78,15 @@ class SikuService(
         }
     }
 
+    private fun closePopElement(androidDriver: AndroidDriver) {
+        try {
+            androidDriver.findElement(AppiumBy.id("com.secoo:id/ic_global_pop_close"))?.let {
+                it.click()
+            }
+        }catch (e: Exception) {
+            log.trace("平台：1919吃喝，关闭弹窗，信息：'{}'。", e.message)
+        }
+    }
     companion object {
 
         private val log = LoggerFactory.getLogger(SikuService::class.java)

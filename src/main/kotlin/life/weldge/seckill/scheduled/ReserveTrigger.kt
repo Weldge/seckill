@@ -9,9 +9,11 @@ import life.weldge.seckill.domain.yanxuan.service.YanxuanService
 import life.weldge.seckill.domain.yiJiuYiJiu.service.YiJiuYiJiuService
 import life.weldge.seckill.domain.zhenkuaile.service.ZhenkuaileService
 import life.weldge.seckill.service.EmailService
+import org.slf4j.LoggerFactory
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty
 import org.springframework.scheduling.annotation.Scheduled
 import org.springframework.stereotype.Component
+import java.time.DayOfWeek
 import java.time.LocalDate
 
 @Component
@@ -33,8 +35,11 @@ class ReserveTrigger(
         yanxuanService.reserveMaotai().let {
             result.add(it)
         }
-        jdService.reserveMaotai().let {
-            result.add(it)
+        //工作日预约的平台
+        if (dayOfWeek.contains(LocalDate.now().dayOfWeek)) {
+            jdService.reserveMaotai().let {
+                result.add(it)
+            }
         }
         yiJiuYiJiuService.reserveMaotai().let {
             result.add(it)
@@ -51,12 +56,15 @@ class ReserveTrigger(
     @Scheduled(cron = "\${scheduled.reserve.cron.two}")
     fun reserveTwo() {
         var result = mutableListOf<BaseResult>()
-        suningService.reserveMaotai().let {
-            result.add(it)
+        //工作日预约的平台
+        if (dayOfWeek.contains(LocalDate.now().dayOfWeek)) {
+            suningService.reserveMaotai().let {
+                result.add(it)
+            }
+            sikuService.reserveMaotai().let {
+                result.add(it)
+            }
         }
-//        sikuService.reserveMaotai().let {
-//            result.add(it)
-//        }
 //        xiaomiService.reserveMaotai().let {
 //            result.add(it)
 //        }
@@ -70,5 +78,16 @@ class ReserveTrigger(
             "${LocalDate.now()},下午场预约结果通知",
             emailService.handleResultToHtmlContent(result)
         )
+    }
+
+    companion object {
+        private val dayOfWeek = listOf<DayOfWeek>(
+            DayOfWeek.MONDAY,
+            DayOfWeek.TUESDAY,
+            DayOfWeek.WEDNESDAY,
+            DayOfWeek.TUESDAY,
+            DayOfWeek.FRIDAY
+        )
+        private val log = LoggerFactory.getLogger(SikuService::class.java)
     }
 }

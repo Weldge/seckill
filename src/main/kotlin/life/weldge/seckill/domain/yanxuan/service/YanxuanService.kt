@@ -2,6 +2,7 @@ package life.weldge.seckill.domain.yanxuan.service
 
 import com.google.common.collect.ImmutableMap
 import io.appium.java_client.AppiumBy
+import io.appium.java_client.android.AndroidDriver
 import life.weldge.seckill.config.DriverYanxuan
 import life.weldge.seckill.domain.yanxuan.vo.YanxuanReserveResult
 import life.weldge.seckill.domain.yanxuan.vo.YanxuanSeckillResult
@@ -21,10 +22,13 @@ class YanxuanService(
         driver.getAndroidDriver().let {
             //线程睡眠等待首页动画结束
             TimeUnit.SECONDS.sleep(5L)
+            //关闭悬浮窗口
+            closePopElement(it)
+            TimeUnit.SECONDS.sleep(2L)
+            //进入个人页面
+            it.executeScript("mobile: clickGesture", ImmutableMap.of("x", 968, "y", 2298))
+            TimeUnit.SECONDS.sleep(2L)
             try {
-                //进入个人页面
-                it.findElement(AppiumBy.androidUIAutomator("new UiSelector().text(\"个人\")")).click()
-                TimeUnit.SECONDS.sleep(2L)
                 //点击收藏
                 it.findElement(AppiumBy.androidUIAutomator("new UiSelector().text(\"收藏\")")).click()
                 TimeUnit.SECONDS.sleep(2L)
@@ -60,10 +64,13 @@ class YanxuanService(
         driver.getAndroidDriver().let {
             //线程睡眠等待首页动画结束
             TimeUnit.SECONDS.sleep(5L)
+            //关闭悬浮窗口
+            closePopElement(it)
+            TimeUnit.SECONDS.sleep(2L)
+            //进入个人页面
+            it.executeScript("mobile: clickGesture", ImmutableMap.of("x", 968, "y", 2298))
+            TimeUnit.SECONDS.sleep(2L)
             try {
-                //进入个人页面
-                it.findElement(AppiumBy.androidUIAutomator("new UiSelector().text(\"个人\")")).click()
-                TimeUnit.SECONDS.sleep(2L)
                 //点击收藏
                 it.findElement(AppiumBy.androidUIAutomator("new UiSelector().text(\"收藏\")")).click()
                 TimeUnit.SECONDS.sleep(2L)
@@ -90,6 +97,16 @@ class YanxuanService(
             }
             return YanxuanReserveResult.fails()
         }
+    }
+
+    private fun closePopElement(androidDriver: AndroidDriver) {
+//        try {
+//            androidDriver.findElement(AppiumBy.className("android.widget.ImageView"))?.let {
+//                it.click()
+//            }
+//        }catch (e: Exception) {
+//            log.trace("平台：网易严选，关闭弹窗，信息：'{}'。", e.message)
+//        }
     }
 
     companion object {
