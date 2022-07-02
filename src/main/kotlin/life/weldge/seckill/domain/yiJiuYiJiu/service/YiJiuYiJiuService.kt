@@ -2,6 +2,7 @@ package life.weldge.seckill.domain.yiJiuYiJiu.service
 
 import com.google.common.collect.ImmutableMap
 import io.appium.java_client.AppiumBy
+import io.appium.java_client.android.AndroidDriver
 import life.weldge.seckill.config.DriverYiJiuYiJiu
 import life.weldge.seckill.domain.yiJiuYiJiu.vo.YiJiuYiJiuReserveResult
 import life.weldge.seckill.domain.yiJiuYiJiu.vo.YiJiuYiJiuSeckillResult
@@ -22,6 +23,9 @@ class YiJiuYiJiuService(
         driver.getAndroidDriver().let {
             //线程睡眠等待首页动画结束
             TimeUnit.SECONDS.sleep(5L)
+            //关闭悬浮窗口
+            closePopElement(it)
+            TimeUnit.SECONDS.sleep(2L)
             //进入茅台页面
             it.executeScript("mobile: clickGesture", ImmutableMap.of("x", 524, "y", 1396))
             TimeUnit.SECONDS.sleep(3L)
@@ -78,9 +82,8 @@ class YiJiuYiJiuService(
             //线程睡眠等待首页动画结束
             TimeUnit.SECONDS.sleep(5L)
             //关闭悬浮窗口
-//            it.findElement(
-//                AppiumBy.id("com.yijiuyijiu.eshop:id/btn_close")
-//            ).click()
+            closePopElement(it)
+            TimeUnit.SECONDS.sleep(2L)
             try {
                 //进入茅台页面
                 it.executeScript("mobile: clickGesture", ImmutableMap.of("x", 524, "y", 1396))
@@ -122,6 +125,16 @@ class YiJiuYiJiuService(
                 //退出app
                 it.closeApp()
             }
+        }
+    }
+
+    private fun closePopElement(androidDriver: AndroidDriver) {
+        try {
+            androidDriver.findElement(AppiumBy.id("com.yijiuyijiu.eshop:id/btn_close"))?.let {
+                it.click()
+            }
+        }catch (e: Exception) {
+            log.trace("平台：1919吃喝，关闭弹窗，信息：'{}'。", e.message)
         }
     }
 
