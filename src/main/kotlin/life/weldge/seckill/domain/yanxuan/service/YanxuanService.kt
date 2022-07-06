@@ -100,13 +100,13 @@ class YanxuanService(
     }
 
     private fun closePopElement(androidDriver: AndroidDriver) {
-//        try {
-//            androidDriver.findElement(AppiumBy.className("android.widget.ImageView"))?.let {
-//                it.click()
-//            }
-//        }catch (e: Exception) {
-//            log.trace("平台：网易严选，关闭弹窗，信息：'{}'。", e.message)
-//        }
+        try {
+            androidDriver.findElement(AppiumBy.id("com.netease.yanxuan:id/trans_cancel"))?.let {
+                it.click()
+            }
+        }catch (e: Exception) {
+            log.trace("平台：网易严选，关闭弹窗，信息：'{}'。", e.message)
+        }
     }
 
     companion object {
