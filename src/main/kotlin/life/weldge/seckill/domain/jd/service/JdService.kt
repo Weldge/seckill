@@ -60,6 +60,7 @@ class JdService(
                 TimeUnit.SECONDS.sleep(2L)
                 it.findElement(AppiumBy.androidUIAutomator("new UiSelector().text(\"立即预约\")"))?.let { element ->
                     element.click()
+                    TimeUnit.SECONDS.sleep(2L)
                     it.findElement(AppiumBy.id("com.jd.lib.productdetail.feature:id/me"))?.let { popUpsElement ->
                         if (popUpsElement.text.contains("预约成功")) return JdReserveResult.success()
                     }

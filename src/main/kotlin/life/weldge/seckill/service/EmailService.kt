@@ -39,7 +39,7 @@ class EmailService(
 
     companion object {
 
-        private const val to: String = "546962808@qq.com"
+        private const val to: String = "weldge.chen@gmail.com"
         private val log: Logger = LoggerFactory.getLogger(EmailService::class.java)
     }
 
