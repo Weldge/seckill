@@ -19,12 +19,17 @@ platform:
     imoutai:
       scheduled:
         enabled: false
-        cron: "*/1 * * * * ?"
+        cron:
+          seckill:
+            one: "20 59 8 * * *" #每天09:00
+            two: "20 59 13 * * *" #每天14:00
+            three: "20 59 16 * * *" #每天17:00
+            twenty: "20 59 19 * * *" #每天20:00
       connect:
         udid: "8e156534"
         unlockType: "pattern"
         unlockKey: "9527"
-        uiautomator2ServerReadTimeout: "10000"
+        uiautomator2ServerReadTimeout: "80000"
         noReset: "true"
         appPackage: "com.moutai.mall"
         appActivity: "com.moutai.mall.module.splash.SplashActivity"
@@ -37,7 +42,7 @@ platform:
         udid: "8e156534"
         unlockType: "pattern"
         unlockKey: "9527"
-        uiautomator2ServerReadTimeout: "10000"
+        uiautomator2ServerReadTimeout: "80000"
         noReset: "true"
         appPackage: "com.taobao.taobao"
         appActivity: "com.taobao.tao.welcome.Welcome"
@@ -50,7 +55,7 @@ platform:
         udid: "8e156534"
         unlockType: "pattern"
         unlockKey: "9527"
-        uiautomator2ServerReadTimeout: "10000"
+        uiautomator2ServerReadTimeout: "80000"
         noReset: "true"
         appPackage: "com.jingdong.app.mall"
         appActivity: ".main.MainActivity"
@@ -58,12 +63,12 @@ platform:
       scheduled:
         enabled: true
         cron:
-          seckill: "20 29 0 ? * 1-5" #工作日9:30
+          seckill: "20 29 9 ? * 1-5" #工作日9:30
       connect:
         udid: "8e156534"
         unlockType: "pattern"
         unlockKey: "9527"
-        uiautomator2ServerReadTimeout: "10000"
+        uiautomator2ServerReadTimeout: "80000"
         noReset: "true"
         appPackage: "com.suning.mobile.ebuy"
         appActivity: "com.suning.mobile.ebuy.host.InitialActivity"
@@ -78,7 +83,7 @@ platform:
         udid: "8e156534"
         unlockType: "pattern"
         unlockKey: "9527"
-        uiautomator2ServerReadTimeout: "10000"
+        uiautomator2ServerReadTimeout: "80000"
         noReset: "true"
         appPackage: "com.yijiuyijiu.eshop"
         appActivity: "com.b2c1919.app.ui.launch.LaunchActivity"
@@ -91,7 +96,7 @@ platform:
         udid: "8e156534"
         unlockType: "pattern"
         unlockKey: "9527"
-        uiautomator2ServerReadTimeout: "10000"
+        uiautomator2ServerReadTimeout: "80000"
         noReset: "true"
         appPackage: "com.secoo"
         appActivity: "com.secoo.app.mvp.ui.activity.LauncherActivity"
@@ -106,7 +111,7 @@ platform:
         udid: "8e156534"
         unlockType: "pattern"
         unlockKey: "9527"
-        uiautomator2ServerReadTimeout: "10000"
+        uiautomator2ServerReadTimeout: "80000"
         noReset: "true"
         appPackage: "com.netease.yanxuan"
         appActivity: ".module.mainpage.activity.MainPageActivity"
@@ -119,7 +124,7 @@ platform:
         udid: "8e156534"
         unlockType: "pattern"
         unlockKey: "9527"
-        uiautomator2ServerReadTimeout: "10000"
+        uiautomator2ServerReadTimeout: "80000"
         noReset: "true"
         appPackage: "com.xiaomi.youpin"
         appActivity: "com.xiaomi.youpin.activity.SplashActivity"
@@ -131,7 +136,7 @@ platform:
         udid: "8e156534"
         unlockType: "pattern"
         unlockKey: "9527"
-        uiautomator2ServerReadTimeout: "10000"
+        uiautomator2ServerReadTimeout: "80000"
         noReset: "true"
         appPackage: "com.gome.eshopnew"
         appActivity: "com.gome.ecmall.home.LaunchActivity"
